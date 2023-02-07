@@ -8,5 +8,137 @@
     <link rel="stylesheet" href="style.css" />
     <script defer src="script.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="background__image"></div>
+      <section class="todo-app">
+        <header class="todo-app__title">
+          <h1 class="heading--1">
+            What's up,
+            <span class="todo-app__title-name">name here</span>
+          </h1>
+          <svg class="todo-app__title-icon icon">
+            <use xlink:href="img/icons.svg#icon-brightness-up"></use>
+          </svg>
+        </header>
+        <main class="todo-app__container">
+          <div class="todo-app__category">
+            <h1 class="heading--1">pick a category</h1>
+            <form class="todo-app__bussiness">
+              <label for="business" class="todo-app__label">
+                <input
+                  name="radio"
+                  id="business"
+                  class="todo-app__radio"
+                  type="radio"
+                />
+                <span class="todo-app__radio"></span>
+                business
+              </label>
+              <label for="personal" class="todo-app__label">
+                <input
+                  name="radio"
+                  id="personal"
+                  class="todo-app__radio"
+                  type="radio"
+                />
+                <span class="todo-app__radio"></span>
+                personal
+              </label>
+            </form>
+          </div>
+          <div class="todo-app__content">
+            <form class="todo-app__search">
+              <span class="todo-app__check-box"></span>
+              <input type="text" class="todo-app__input" />
+            </form>
+            <div class="todo-app__details">
+              <ul class="todo-app__list">
+                <li class="todo-app__item">
+                  <label for="" class="todo-app__label-btn">
+                    <input type="radio" class="todo-app__radio" />
+                    <span class="todo-app__radio-btn">
+                      <svg class="todo-app__radio-icon icon">
+                        <use xlink:href="img/icons.svg#icon-check"></use>
+                      </svg>
+                    </span>
+                  </label>
+                  <input type="text" class="todo-app__input-value" />
+                  <div class="btn__container">
+                    <button class="btn btn--edit">edit</button>
+                    <button class="btn btn--delete">delete</button>
+                  </div>
+                </li>
+                <li class="todo-app__item">
+                  <label for="" class="todo-app__label-btn">
+                    <input type="radio" class="todo-app__radio" />
+                    <span class="todo-app__radio-btn">
+                      <svg class="todo-app__radio-icon icon">
+                        <use xlink:href="img/icons.svg#icon-check"></use>
+                      </svg>
+                    </span>
+                  </label>
+                  <input type="text" class="todo-app__input-value" />
+                  <div class="btn__container">
+                    <button class="btn btn--edit">edit</button>
+                    <button class="btn btn--delete">delete</button>
+                  </div>
+                </li>
+                <li class="todo-app__item">
+                  <label for="" class="todo-app__label-btn">
+                    <input type="radio" class="todo-app__radio" />
+                    <span class="todo-app__radio-btn">
+                      <svg class="todo-app__radio-icon icon">
+                        <use xlink:href="img/icons.svg#icon-check"></use>
+                      </svg>
+                    </span>
+                  </label>
+                  <input type="text" class="todo-app__input-value" />
+                  <div class="btn__container">
+                    <button class="btn btn--edit">edit</button>
+                    <button class="btn btn--delete">delete</button>
+                  </div>
+                </li>
+                <li class="todo-app__item">
+                  <label for="" class="todo-app__label-btn">
+                    <input type="radio" class="todo-app__radio" />
+                    <span class="todo-app__radio-btn">
+                      <svg class="todo-app__radio-icon icon">
+                        <use xlink:href="img/icons.svg#icon-check"></use>
+                      </svg>
+                    </span>
+                  </label>
+                  <input type="text" class="todo-app__input-value" />
+                  <div class="btn__manipulate">
+                    <button class="btn btn--edit">edit</button>
+                    <button class="btn btn--delete">delete</button>
+                  </div>
+                </li>
+              </ul>
+              <div class="todo-app__actions">
+                <p class="todo-app__text">
+                  <span class="todo-app__item-left">5</span>
+                  items left
+                </p>
+                <div class="btn__listners">
+                  <button class="btn btn--all">all</button>
+                  <button class="btn btn--active">active</button>
+                  <button class="btn btn--complete">completed</button>
+                </div>
+                <button class="btn btn--clear">clear completed</button>
+              </div>
+            </div>
+          </div>
+        </main>
+      </section>
+      <footer>
+        Design by
+        <a
+          href="https://github.com/busarishakrullahi/Top-100-Projects"
+          target="_blank"
+          >Busari Shakrullahi</a
+        >
+      </footer>
+    </div>
+  </body>
 </html>
