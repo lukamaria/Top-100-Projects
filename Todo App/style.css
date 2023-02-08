@@ -6,6 +6,27 @@
   box-sizing: inherit;
 }
 
+:root {
+  --color-primary: #55c57ad3;
+  --color-primary-light: #7ed56fd8;
+  --color-primary-dark: #28b485;
+
+  --color-white: #fff;
+
+  --color-gray: gray;
+  --color-light-gray: #eee;
+  --color-light-gray1: #999;
+  --color-dark-gray: #333;
+
+  --color-black: black;
+
+  --color-secondary-light: #ffb900;
+  --color-secondary-dark: #ff7730;
+
+  --color-tertiary-light: #2998ff;
+  --color-tertiary-dark: #5643fa;
+}
+
 html {
   font-size: 62.5%;
   box-sizing: border-box;
@@ -49,13 +70,15 @@ body {
   margin: auto;
   gap: 4vh;
   overflow: auto;
-  padding: 6rem 0;
+  padding: 3rem 0;
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
 }
 
 .icon {
   width: 3rem;
   height: 3rem;
-  fill: #fff;
+  fill: var(--color-white);
 }
 
 .todo-app__title {
@@ -67,7 +90,7 @@ body {
 }
 
 .heading--1 {
-  color: #fff;
+  color: var(--color-white);
   font-size: 2rem;
 }
 
@@ -76,12 +99,12 @@ body {
 }
 
 .todo-app__title-name:focus {
-  outline: 0.2rem solid red;
+  outline: none;
 }
 
 .btn {
   background-color: transparent;
-  /* border: 0; */
+  border: 0;
   cursor: pointer;
 }
 
@@ -104,7 +127,7 @@ body {
 
 .heading--4 {
   font-size: 1.5rem;
-  color: #fff;
+  color: var(--color-white);
   margin-bottom: 0.5rem;
 }
 
@@ -117,11 +140,11 @@ body {
   width: 50%;
   height: 8rem;
   padding: 2rem;
-  background-color: #fff;
+  background-color: var(--color-white);
   border-radius: 0.4rem;
   font-size: 1.5rem;
   text-transform: capitalize;
-  color: gray;
+  color: var(--color-gray);
   cursor: pointer;
 
   display: flex;
@@ -164,11 +187,15 @@ body {
 }
 
 .todo-app__category-radio--business {
-  border: 0.2rem solid #fbdb89;
+  border: 0.2rem solid var(--color-secondary-dark);
 }
 
 .todo-app__category-radio--business::before {
-  background-image: linear-gradient(to right bottom, #f38e82, #f48982);
+  background-image: linear-gradient(
+    to right bottom,
+    var(--color-secondary-dark),
+    var(--color-secondary-light)
+  );
 }
 
 .todo-app__category-radio--personal {
@@ -181,12 +208,12 @@ body {
 
 .todo-app__search {
   width: 100%;
-  padding: 1rem;
+  padding: 1.5rem;
   display: flex;
   align-items: center;
   background-color: rgb(50, 4, 64);
   margin-bottom: 1.5rem;
-  border-radius: 0.3rem;
+  border-radius: 0.5rem;
 }
 
 .todo-app__check-box {
@@ -195,43 +222,52 @@ body {
   height: 2rem;
   border: 0.1rem solid #ffffff73;
   border-radius: 100%;
-  margin-right: 1rem;
+  margin-right: 1.5rem;
 }
 
 .todo-app__input {
   width: 100%;
+  caret-color: var(--color-tertiary-light);
+}
+
+.todo-app__input,
+.todo-app__input-value {
   font-family: inherit;
   background-color: transparent;
   border: 0;
-  color: #fff;
-  caret-color: blueviolet;
+  color: var(--color-white);
 }
 
 .todo-app__input::placeholder {
   color: #ffffffaf;
 }
 
-.todo-app__input:focus {
+.todo-app__input:focus,
+.todo-app__input-value:focus {
   outline: none;
 }
 
-.todo-app__list {
-  /* height: 30vh; */
-  overflow: auto;
+.todo-app__details {
   background-color: rgb(50, 4, 64);
-  border-radius: 0.2rem;
-  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.todo-app__list {
+  height: 30vh;
+  overflow: auto;
 }
 
 .todo-app__item {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  border-bottom: 0.1rem solid #ffffff73;
+  padding: 1.5rem;
 }
 
 .todo-app__label-btn {
-  width: 3rem;
-  height: 3rem;
+  width: 2rem;
+  height: 2rem;
   border: 0.1rem solid #ffffff73;
   border-radius: 100%;
   display: flex;
@@ -241,20 +277,25 @@ body {
 }
 
 .todo-app__radio-btn {
-  width: 3rem;
-  height: 3rem;
-  background-color: blue;
+  width: 2rem;
+  height: 2rem;
+  background-image: linear-gradient(
+    to right bottom,
+    var(--color-tertiary-light),
+    var(--color-tertiary-dark)
+  );
   border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 0;
   visibility: hidden;
+  transition: all 0.2s ease;
 }
 
 .todo-app__radio-icon {
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .todo-app__radio {
@@ -264,4 +305,72 @@ body {
 .todo-app__radio:checked ~ .todo-app__radio-btn {
   opacity: 1;
   visibility: visible;
+}
+
+.todo-app__input-value {
+  width: 70%;
+  /* height: 3rem; */
+  margin-right: auto;
+  overflow: auto;
+}
+
+.btn--edit,
+.btn--delete {
+  padding: 0.5rem;
+  font-size: inherit;
+  text-transform: uppercase;
+  color: var(--color-white);
+  border-radius: 0.3rem;
+}
+
+.btn--edit {
+  background-color: var(--color-tertiary-dark);
+}
+
+.btn--delete {
+  background-color: red;
+}
+
+.todo-app__actions {
+  display: flex;
+  justify-content: space-between;
+  color: #ffffff7d;
+  padding: 1.5rem;
+}
+
+.todo-app__text {
+  font-size: 1.2rem;
+}
+
+.btn__listners {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.btn--all,
+.btn--active,
+.btn--complete,
+.btn--clear {
+  color: #ffffff7d;
+  text-transform: capitalize;
+}
+
+.btn--all {
+  color: var(--color-tertiary-dark);
+}
+
+.btn--active:hover,
+.btn--clear:hover,
+.btn--complete:hover {
+  color: var(--color-white);
+}
+
+.footer {
+  text-align: center;
+  color: var(--color-white);
+  font-size: 1.5rem;
+}
+
+.footer__link {
+  color: #ffffff7d;
 }
