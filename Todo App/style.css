@@ -70,7 +70,7 @@ body {
   margin: auto;
   gap: 4vh;
   overflow: auto;
-  padding: 3rem 0;
+  padding: 3rem 1rem;
   display: grid;
   grid-template-rows: max-content 1fr max-content;
 }
@@ -114,6 +114,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: transform 0.3s linear;
 }
 
 .todo-app__container {
@@ -225,12 +226,12 @@ body {
   margin-right: 1.5rem;
 }
 
-.todo-app__input {
+.todo-app__search-input {
   width: 100%;
   caret-color: var(--color-tertiary-light);
 }
 
-.todo-app__input,
+.todo-app__search-input,
 .todo-app__input-value {
   font-family: inherit;
   background-color: transparent;
@@ -238,11 +239,11 @@ body {
   color: var(--color-white);
 }
 
-.todo-app__input::placeholder {
+.todo-app__search-input::placeholder {
   color: #ffffffaf;
 }
 
-.todo-app__input:focus,
+.todo-app__search-input:focus,
 .todo-app__input-value:focus {
   outline: none;
 }
@@ -255,6 +256,11 @@ body {
 .todo-app__list {
   height: 30vh;
   overflow: auto;
+}
+
+.todo-app__list::-webkit-scrollbar,
+.todo-app__input-value::-webkit-scrollbar {
+  width: 0;
 }
 
 .todo-app__item {
@@ -279,11 +285,11 @@ body {
 .todo-app__radio-btn {
   width: 2rem;
   height: 2rem;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to right bottom,
     var(--color-tertiary-light),
     var(--color-tertiary-dark)
-  );
+  ); */
   border-radius: 100%;
   display: flex;
   justify-content: center;
@@ -309,9 +315,10 @@ body {
 
 .todo-app__input-value {
   width: 70%;
-  /* height: 3rem; */
+  height: 2.5rem;
   margin-right: auto;
-  overflow: auto;
+  cursor: not-allowed;
+  resize: none;
 }
 
 .btn--edit,
@@ -348,9 +355,8 @@ body {
 }
 
 .btn--all,
-.btn--active,
-.btn--complete,
-.btn--clear {
+.btn--uncompleted,
+.btn--complete {
   color: #ffffff7d;
   text-transform: capitalize;
 }
@@ -359,8 +365,7 @@ body {
   color: var(--color-tertiary-dark);
 }
 
-.btn--active:hover,
-.btn--clear:hover,
+.btn--uncompleted:hover,
 .btn--complete:hover {
   color: var(--color-white);
 }
@@ -373,4 +378,12 @@ body {
 
 .footer__link {
   color: #ffffff7d;
+}
+
+.rotate {
+  transform: rotate(360deg);
+}
+
+.checked {
+  text-decoration: line-through;
 }

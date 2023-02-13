@@ -41,6 +41,7 @@
                   id="business"
                   class="todo-app__radio-group"
                   type="radio"
+                  value="business"
                 />
                 <span
                   class="todo-app__category-radio todo-app__category-radio--business"
@@ -54,11 +55,12 @@
                   id="personal"
                   class="todo-app__radio-group"
                   type="radio"
+                  value="personal"
                 />
                 <span
                   class="todo-app__category-radio todo-app__category-radio--personal"
-                  >&nbsp;</span
-                >
+                  >&nbsp;
+                </span>
                 personal
               </label>
             </form>
@@ -68,7 +70,7 @@
               <span class="todo-app__check-box"></span>
               <input
                 type="text"
-                class="todo-app__input"
+                class="todo-app__search-input"
                 placeholder="Create your todo list"
               />
             </form>
@@ -88,24 +90,25 @@
                       </svg>
                     </span>
                   </label>
-                  <input type="text" class="todo-app__input-value" />
+                  <textarea class="todo-app__input-value"></textarea>
+                   <input type="text" class="todo-app__input-value" /> 
                   <div class="btn__container">
                     <button class="btn btn--edit">edit</button>
                     <button class="btn btn--delete">delete</button>
                   </div>
-                </li> -->
+                </li>
+                -->
               </ul>
               <div class="todo-app__actions">
                 <p class="todo-app__text">
-                  <span class="todo-app__item-left">5</span>
-                  items left
+                  <span class="todo-app__item-left">0</span>
+                  items left uncheck
                 </p>
                 <div class="btn__listners">
                   <button class="btn btn--all">all</button>
-                  <button class="btn btn--active">active</button>
+                  <button class="btn btn--uncompleted">uncompleted</button>
                   <button class="btn btn--complete">completed</button>
                 </div>
-                <button class="btn btn--clear">clear completed</button>
               </div>
             </div>
           </div>
