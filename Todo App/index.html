@@ -21,9 +21,11 @@
         <header class="todo-app__title">
           <h1 class="heading--1">
             What's up,
-            <span class="todo-app__title-name" contenteditable="true"
-              >Name here</span
-            >
+            <input
+              type="text"
+              class="todo-app__title-name"
+              placeholder="Name here"
+            />
           </h1>
           <button class="btn btn--change btn__title">
             <svg class="todo-app__title-icon icon">
@@ -34,81 +36,85 @@
         <main class="todo-app__container">
           <div class="todo-app__category">
             <h4 class="heading--4">Pick a category</h4>
-            <form class="todo-app__category-group">
-              <label for="business" class="todo-app__label">
+            <form class="todo-app__form">
+              <div class="todo-app__category-group">
+                <label class="todo-app__label">
+                  <input
+                    name="radio"
+                    id="business"
+                    class="todo-app__radio-group"
+                    type="radio"
+                    value="business"
+                  />
+                  <span
+                    class="todo-app__category-radio todo-app__category-radio--business"
+                    >&nbsp;</span
+                  >
+                  business
+                </label>
+                <label class="todo-app__label">
+                  <input
+                    name="radio"
+                    id="personal"
+                    class="todo-app__radio-group"
+                    type="radio"
+                    value="personal"
+                  />
+                  <span
+                    class="todo-app__category-radio todo-app__category-radio--personal"
+                    >&nbsp;
+                  </span>
+                  personal
+                </label>
+              </div>
+
+              <div class="todo-app__search">
+                <span class="todo-app__check-box"></span>
                 <input
-                  name="radio"
-                  id="business"
-                  class="todo-app__radio-group"
-                  type="radio"
-                  value="business"
+                  type="text"
+                  class="todo-app__search-input"
+                  id="searchValue"
+                  placeholder="Create your todo list"
+                  autocomplete="off"
                 />
-                <span
-                  class="todo-app__category-radio todo-app__category-radio--business"
-                  >&nbsp;</span
-                >
-                business
-              </label>
-              <label for="personal" class="todo-app__label">
-                <input
-                  name="radio"
-                  id="personal"
-                  class="todo-app__radio-group"
-                  type="radio"
-                  value="personal"
-                />
-                <span
-                  class="todo-app__category-radio todo-app__category-radio--personal"
-                  >&nbsp;
-                </span>
-                personal
-              </label>
+              </div>
             </form>
           </div>
-          <div class="todo-app__content">
-            <form class="todo-app__search">
-              <span class="todo-app__check-box"></span>
-              <input
-                type="text"
-                class="todo-app__search-input"
-                placeholder="Create your todo list"
-              />
-            </form>
-            <div class="todo-app__details">
-              <ul class="todo-app__list">
-                <!-- <li class="todo-app__item">
-                  <label for="radio-item--1" class="todo-app__label-btn">
-                    <input
-                      type="radio"
-                      name="radio-item"
-                      id="radio-item--1"
-                      class="todo-app__radio"
-                    />
-                    <span class="todo-app__radio-btn">
-                      <svg class="todo-app__radio-icon icon">
-                        <use xlink:href="img/icons.svg#icon-check"></use>
-                      </svg>
-                    </span>
-                  </label>
-                  <textarea class="todo-app__input-value"></textarea>
-                   <input type="text" class="todo-app__input-value" /> 
-                  <div class="btn__container">
-                    <button class="btn btn--edit">edit</button>
-                    <button class="btn btn--delete">delete</button>
-                  </div>
-                </li>
-                -->
-              </ul>
-              <div class="todo-app__actions">
-                <p class="todo-app__text">
-                  <span class="todo-app__item-left">0</span>
-                  items left uncheck
-                </p>
-                <div class="btn__listners">
-                  <button class="btn btn--all">all</button>
-                  <button class="btn btn--uncompleted">uncompleted</button>
-                  <button class="btn btn--complete">completed</button>
+          <div class="todo-app__details">
+            <ul class="todo-app__list">
+              <!-- <li class="todo-app__item">
+                <label class="todo-app__label-btn">
+                  <input
+                    type="checkbox"
+                    name="checkbox-item"
+                    id="checkbox-item"
+                    class="todo-app__checkbox"
+                  />
+                  <span class="todo-app__checkbox-btn">
+                    <svg class="todo-app__checkbox-icon icon">
+                      <use xlink:href="img/icons.svg#icon-check"></use>
+                    </svg>
+                  </span>
+                </label>
+                <textarea class="todo-app__input-value"></textarea>
+                <div class="btn__container">
+                  <button class="btn btn--edit">edit</button>
+                  <button class="btn btn--delete">delete</button>
                 </div>
+              </li> -->
+            </ul>
+            <div class="todo-app__actions">
+              <p class="todo-app__text">
+                <span class="todo-app__item-left">0</span>
+                items left uncheck
+              </p>
+              <div class="btn__listners">
+                <button class="btn btn--all">all</button>
+                <button class="btn btn--uncompleted">uncompleted</button>
+                <button class="btn btn--completed">completed</button>
+              </div>
+              <div class="sort">
+                <button class="btn btn--sort">&DownArrow;sort</button>
               </div>
             </div>
           </div>

@@ -1,289 +1,313 @@
-"use strict";
+'use strict';
 
 // Selecting element
-const username = document.querySelector(".todo-app__title-name");
-const btnChange = document.querySelector(".btn--change");
-const backgroundImage = document.querySelector(".background-image");
-const container = document.querySelector(".container");
-const todoAppSearch = document.querySelector(".todo-app__search");
-const todoAppSearchInput = document.querySelector(".todo-app__search-input");
-const todoAppList = document.querySelector(".todo-app__list");
-const footer = document.querySelector(".footer");
-const footerLink = document.querySelector(".footer__link");
-const radioGroup = document.getElementsByName("radio");
-const todoAppItemLeft = document.querySelector(".todo-app__item-left");
-
-// Select buttons
-const btnAll = document.querySelector(".btn--all");
-const btnCompleted = document.querySelector(".btn--complete");
-const btnUncompleted = document.querySelector(".btn--uncompleted");
-
-// item left
-const itemLeftArr = [];
-
-// items
-let items = [];
-
-// username array
-let todoAppInputValueArr = [];
-
-// get user input from contenteditable element
-username.addEventListener("blur", function () {
-  const text = this.textContent;
-  localStorage.setItem("username", text);
-});
-
-// set userName textContent to empty when focus and set the color to white
-username.addEventListener("focus", function () {
-  this.textContent = "";
-  this.style.color = "#fff";
-});
+const username = document.querySelector('.todo-app__title-name');
+const btnChange = document.querySelector('.btn--change');
+const backgroundImage = document.querySelector('.background-image');
+const container = document.querySelector('.container');
+const todoAppForm = document.querySelector('.todo-app__form');
+const todoAppSearchInput = document.querySelector('.todo-app__search-input');
+const todoAppList = document.querySelector('.todo-app__list');
+const footer = document.querySelector('.footer');
+const footerLink = document.querySelector('.footer__link');
+const todoAppItemLeft = document.querySelector('.todo-app__item-left');
+const todoAppAction = document.querySelector('.todo-app__actions');
+const btnSort = document.querySelector('.btn--sort');
 
 // change the background image and color of the text also change background color
-btnChange.addEventListener("click", function () {
+btnChange.addEventListener('click', function () {
   // toggling rotate class
-  this.classList.toggle("rotate");
+  this.classList.toggle('rotate');
 
   // inserting html markup to the UI
   const markUp = `
         <svg class="todo-app__title-icon icon">
             <use xlink:href="img/icons.svg#icon-${
-              this.classList.contains("rotate") ? "moon" : "brightness-up"
+              this.classList.contains('rotate') ? 'moon' : 'brightness-up'
             }"></use>
         </svg>
     `;
 
-  this.innerHTML = "";
-  this.insertAdjacentHTML("afterbegin", markUp);
+  this.innerHTML = '';
+  this.insertAdjacentHTML('afterbegin', markUp);
 
   // change element
-  if (this.classList.contains("rotate")) {
-    backgroundImage.style.backgroundImage = "url(img/bg-desktop-light.jpg)";
-    container.style.backgroundColor = "#fff";
-    footer.style.color = "rgb(14, 4, 17)";
-    footerLink.style.color = "rgb(14, 4, 17)";
+  if (this.classList.contains('rotate')) {
+    backgroundImage.style.backgroundImage = 'url(img/bg-desktop-light.jpg)';
+    container.style.backgroundColor = '#fff';
+    footer.style.color = 'rgb(14, 4, 17)';
+    footerLink.style.color = 'rgb(14, 4, 17)';
   } else {
-    backgroundImage.style.backgroundImage = "url(img/bg-desktop-dark.jpg)";
-    container.style.backgroundColor = "rgb(14, 4, 17)";
-    footer.style.color = "#fff";
-    footerLink.style.color = "#ffffff7d";
+    backgroundImage.style.backgroundImage = 'url(img/bg-desktop-dark.jpg)';
+    container.style.backgroundColor = 'rgb(14, 4, 17)';
+    footer.style.color = '#fff';
+    footerLink.style.color = '#ffffff7d';
   }
 });
 
-// checking if the radio button is checked to know if the value if business or personal
-const checkRadioForBusinOrPersonal = function () {
-  Array.from(radioGroup).forEach((el) => {
-    if (el.checked && el.value === "business") {
-      document.querySelector(".todo-app__radio-btn").style.backgroundImage =
-        "linear-gradient(to right bottom, var(--color-secondary-dark),var(--color-secondary-light))";
-    }
+// set todos to local storage dynamically
+let todos = JSON.parse(localStorage.getItem('todos')) || [];
 
-    if (el.checked && el.value === "personal") {
-      document.querySelector(".todo-app__radio-btn").style.backgroundImage =
-        "linear-gradient(to right bottom, #d3c7c3, #918581)";
-    }
-    el.checked = false;
+// set todoAppItemLeftNum to local storage dynamically
+let todoAppItemLeftNum = JSON.parse(localStorage.getItem('itemLeft')) || '';
+
+window.addEventListener('load', function (e) {
+  // get username value from local storgae
+  username.value = localStorage.getItem('username') || '';
+
+  // set username value to local storage when there is a change in value
+  username.addEventListener('change', function (e) {
+    localStorage.setItem('username', e.target.value);
   });
-};
 
-// to check radio button programatically
-let num = 0;
+  // add event to form
+  todoAppForm.addEventListener('submit', function (e) {
+    // prevent form from submitting
+    e.preventDefault();
 
-// create html markup
-todoAppSearch.addEventListener("submit", function (e) {
-  num++;
-  localStorage.setItem("number", num);
-  e.preventDefault();
+    if (!todoAppSearchInput.value) return;
 
-  // check for empty string
-  if (!todoAppSearchInput.value) return;
+    if (/^\s/.test(todoAppSearchInput.value)) {
+      todoAppSearchInput.value = '';
+      return;
+    }
 
-  // check for white space in todoAppSearchInput
-  if (/^\s/.test(todoAppSearchInput.value)) {
-    todoAppSearchInput.value = "";
-    return;
+    // save user input and radio button value to todo object
+    const todo = {
+      searchValue: e.target.searchValue.value,
+      radioValue: e.target.elements.radio.value,
+      checked: false,
+    };
+
+    // push todo object to local storage
+    todos.push(todo);
+
+    // set todos to local storage
+    localStorage.setItem('todos', JSON.stringify(todos));
+
+    // set todos length to todoAppItemLeftNum
+    todoAppItemLeftNum = todos.length;
+
+    console.log(todoAppItemLeftNum);
+    // set todoAppItemLeft to todoAppItemLeftNum when the form is submit
+    todoAppItemLeft.textContent = todoAppItemLeftNum;
+
+    // set todoAppItemLeftNum to local storage
+    localStorage.setItem('itemLeft', JSON.stringify(todoAppItemLeftNum));
+
+    // render todo list element to user interface
+    renderTodoList();
+
+    // reset the form
+    e.target.reset();
+  });
+
+  // render todo list when the page load
+  renderTodoList();
+
+  // set todoAppItemLeft to todoAppItemLeftNum when page load
+  todoAppItemLeft.textContent = todoAppItemLeftNum;
+
+  // reset todoAppItemLeft and todoAppItemLeftNum
+  if (todoAppItemLeftNum < 1) {
+    todoAppItemLeft.textContent = 0;
+    todoAppItemLeftNum = 0;
+    localStorage.setItem('itemLeft', todoAppItemLeftNum);
   }
+});
 
-  console.log(todoAppSearchInput.value.includes(" "));
-  const markUp = `
-        <li  class="todo-app__item">
-            <label for="radio-item--${num}" class="todo-app__label-btn">
-            <input
-                type="radio"
-                name= "radio-item--${num}"
-                id="radio-item--${num}"
-                class="todo-app__radio"
-                value = "radio-item--${num}"
-            />
-            <span class="todo-app__radio-btn">
-                <svg class="todo-app__radio-icon icon">
-                <use xlink:href="img/icons.svg#icon-check"></use>
-                </svg>
-            </span>
-            </label>
-            <textarea  class="todo-app__input-value" ></textarea>
-            <div class="btn__container">
-            <button class="btn btn--edit">edit</button>
-            <button class="btn btn--delete">delete</button>
-            </div>
-        </li>
+const renderTodoList = function (sorted = false) {
+  todoAppList.innerHTML = '';
+
+  // sort todos
+  const todosSort = sorted
+    ? todos.slice().sort((a, b) => {
+        if (a.searchValue > b.searchValue) return 1;
+        if (a.searchValue < b.searchValue) return -1;
+      })
+    : todos;
+
+  todosSort.forEach(todo => {
+    // create element
+    const todoAppItem = document.createElement('li');
+    const label = document.createElement('label');
+    const inputCheckedBox = document.createElement('input');
+    const span = document.createElement('span');
+    const textarea = document.createElement('textarea');
+    const btnContainer = document.createElement('div');
+    const btnEdit = document.createElement('button');
+    const btnDelete = document.createElement('button');
+
+    // add class to element
+    todoAppItem.classList.add('todo-app__item');
+    label.classList.add('todo-app__label-btn');
+    inputCheckedBox.classList.add('todo-app__checkbox');
+    span.classList.add('todo-app__checkbox-btn');
+    textarea.classList.add('todo-app__input-value');
+    btnContainer.classList.add('btn__container');
+    btnEdit.classList.add('btn', 'btn--edit');
+    btnDelete.classList.add('btn', 'btn--delete');
+
+    // create an element inside another element
+    inputCheckedBox.type = 'checkbox';
+    inputCheckedBox.checked = todo.checked;
+    inputCheckedBox.setAttribute('name', 'checkbox-item');
+    inputCheckedBox.setAttribute('id', 'checkbox-item');
+    span.innerHTML = `
+      <svg class="todo-app__checkbox-icon icon">
+        <use xlink:href="img/icons.svg#icon-check"></use>
+      </svg>
     `;
-  todoAppList.insertAdjacentHTML("afterbegin", markUp);
+    textarea.disabled = 'true';
+    textarea.value = todo.searchValue;
+    btnEdit.textContent = 'Edit';
+    btnDelete.textContent = 'Delete';
 
-  // select element
-  const todoAppInputValue = document.querySelector(".todo-app__input-value");
-  const todoAppItem = document.querySelector(".todo-app__item");
-  const btnEdit = document.querySelector(".btn--edit");
-  const btnDelete = document.querySelector(".btn--delete");
-  const todoAppLabelBtn = document.querySelector(".todo-app__label-btn");
-  const radioItem = document.getElementsByName(`radio-item--${num}`);
+    // append element
+    label.append(inputCheckedBox);
+    label.append(span);
+    btnContainer.append(btnEdit);
+    btnContainer.append(btnDelete);
+    todoAppItem.append(label);
+    todoAppItem.append(textarea);
+    todoAppItem.append(btnContainer);
+    todoAppList.append(todoAppItem);
 
-  // push radioItem to itemLeftArr
-  itemLeftArr.push(...radioItem);
+    // add event to edit button
+    btnEdit.addEventListener('click', function (e) {
+      // 1) remove disabled attribute from textarea
+      textarea.removeAttribute('disabled');
 
-  // push html markup to item array
-  items.push(markUp);
+      // 2) set cursor to auto
+      textarea.style.cursor = 'auto';
 
-  // set items arr to local storage
-  localStorage.setItem("item", JSON.stringify(items));
+      // 3) add event to textarea to resave the value to local storage and add disabled attribute, set cursor to not-allowed
+      textarea.addEventListener('blur', function (e) {
+        // set attributes disabled to true on textarea
+        textarea.disabled = 'true';
+        // set cursor to not-allowed
+        textarea.style.cursor = 'not-allowed';
+        // set the value in textarea to local storage
+        todo.searchValue = e.target.value;
+        // restore the localstorage
+        localStorage.setItem('todos', JSON.stringify(todos));
+      });
+    });
 
-  // set todoAppSearchInput value to todoAppInputValue value
-  todoAppInputValue.value = todoAppSearchInput.value;
+    // add event of delete btn
+    btnDelete.addEventListener('click', function () {
+      // remove item from dom
+      todoAppItem.remove();
 
-  // push todoAppInputValue value to usernameArr array
-  todoAppInputValueArr.push(todoAppInputValue.value);
+      // get index number of item from todos array
+      const index = todos.findIndex(el => textarea.value === el.searchValue);
+      console.log(index);
 
-  localStorage.setItem("inputValue", JSON.stringify(todoAppInputValueArr));
+      // delete item from todos array
+      todos.splice(index, 1);
 
-  // disable todoAppInputValue
-  todoAppInputValue.disabled = "true";
+      // restore local storage
+      localStorage.setItem('todos', JSON.stringify(todos));
 
-  // set todoAppSearchInput to empty string
-  todoAppSearchInput.value = "";
+      // todo.checked is true set todoAppItemLeft to value of todoAppItemLeftNum in local storage
+      if (todo.checked) {
+        todoAppItemLeft.textContent = todoAppItemLeftNum;
+      }
 
-  // todoAppSearchInput should not be focus when the form is submitted
-  todoAppSearchInput.blur();
+      // todo.checked is false decrease the value and reset it to local storage
+      if (!todo.checked) {
+        todoAppItemLeftNum--;
+        todoAppItemLeft.textContent = todoAppItemLeftNum;
+        localStorage.setItem('itemLeft', todoAppItemLeftNum);
+      }
+    });
 
-  // excute checkRadioForBusinOrPersonal()
-  checkRadioForBusinOrPersonal();
+    // add personal class to element that have personal value
+    if (todo.radioValue === 'personal') {
+      span.classList.add('personal');
+    }
 
-  // add strike to text
-  todoAppLabelBtn.addEventListener("click", function () {
-    Array.from(radioItem).forEach((el) => {
-      if (el.checked) {
-        todoAppInputValue.classList.add("checked");
-        const index = itemLeftArr.findIndex((val) => val.value === el.value);
-        itemLeftArr.splice(index, 1);
-        todoAppItemLeft.textContent = itemLeftArr.length;
-        console.log(itemLeftArr);
+    // add business class to element that have business value
+    if (todo.radioValue === 'business') {
+      span.classList.add('business');
+    }
+
+    // add checked class to textarea when the inputCheckbox is true and remove it when false
+    if (todo.checked) {
+      textarea.classList.add('checked');
+    } else {
+      textarea.classList.remove('checked');
+    }
+
+    // add class checked to inputChecked when checked
+    inputCheckedBox.addEventListener('click', function (e) {
+      // set todo.checked to true
+      todo.checked = e.target.checked;
+
+      if (todo.checked) {
+        // add checked class to textarea
+        textarea.classList.add('checked');
+        // decrease the todoAppItemLeftNum value when todo.checked is true
+        todoAppItemLeftNum--;
+        // set the value to local storage
+        localStorage.setItem('itemLeft', JSON.stringify(todoAppItemLeftNum));
+        // set todoAppItemLeftNum value to todoAppItemLeft
+        todoAppItemLeft.textContent = todoAppItemLeftNum;
+      } else {
+        // remove checked class todo.checked is false
+        textarea.classList.remove('checked');
+        // increase the todoAppItemLeftNum value when todo.checked is false
+        todoAppItemLeftNum++;
+        // set the value to local storage
+        localStorage.setItem('itemLeft', JSON.stringify(todoAppItemLeftNum));
+        // set todoAppItemLeftNum value to todoAppItemLeft
+        todoAppItemLeft.textContent = todoAppItemLeftNum;
+      }
+
+      // restore todos to local storage
+      localStorage.setItem('todos', JSON.stringify(todos));
+    });
+
+    // add event listners on todoapp actions
+    todoAppAction.addEventListener('click', function (e) {
+      switch (e.target.classList[1]) {
+        case 'btn--all':
+          todoAppItem.style.display = 'flex';
+          break;
+
+        case 'btn--completed':
+          if (textarea.classList.contains('checked')) {
+            todoAppItem.style.display = 'flex';
+          } else {
+            todoAppItem.style.display = 'none';
+          }
+          break;
+
+        case 'btn--uncompleted':
+          if (!textarea.classList.contains('checked')) {
+            todoAppItem.style.display = 'flex';
+          } else {
+            todoAppItem.style.display = 'none';
+          }
+          break;
       }
     });
   });
-
-  // edit text in todoAppInputValue
-  btnEdit.addEventListener("click", function () {
-    todoAppInputValue.style.cursor = "auto";
-    todoAppInputValue.removeAttribute("disabled");
-  });
-
-  // delete todoAppItem element
-  btnDelete.addEventListener("click", function () {
-    todoAppItem.remove();
-  });
-
-  // check for completed task
-  btnCompleted.addEventListener("click", function () {
-    if (!todoAppInputValue.classList.contains("checked")) {
-      todoAppInputValue.parentElement.style.display = "none";
-    }
-  });
-
-  // check for uncompleted task
-  btnUncompleted.addEventListener("click", function () {
-    if (todoAppInputValue.classList.contains("checked")) {
-      todoAppInputValue.parentElement.style.display = "none";
-    }
-  });
-
-  // display all the task
-  btnAll.addEventListener("click", function () {
-    todoAppInputValue.parentElement.style.display = "flex";
-  });
-
-  // set
-  todoAppItemLeft.textContent = itemLeftArr.length;
-});
-
-// get username from local storage
-const getUsernameFromLocalStorage = function () {
-  // get username from localstorage
-  const usernameStorage = localStorage.getItem("username");
-
-  // return immediately if the localstorage is empty
-  if (!usernameStorage) return;
-
-  username.textContent = usernameStorage;
+  return todosSort;
 };
 
-// get item from local storage
-const getItemsFromLocalStorage = function () {
-  // get item from localstorage
-  const itemStorage = localStorage.getItem("item");
+// state variable to change the state of todos
+let sorted = false;
 
-  // return immediately if the localstorage is empty
-  if (!itemStorage) return;
-
-  // converting itemstorage to array of object
-  const itemArr = JSON.parse(itemStorage);
-
-  // passing itemArr from localstorage to items array
-  items = itemArr;
-  console.log(items.join(""));
-
-  // inserting items to dom
-  todoAppList.insertAdjacentHTML("beforeend", items.join(""));
-
-  let numm = localStorage.getItem("number");
-  num = numm;
-  const todoAppInputValueAll = document.querySelectorAll(
-    ".todo-app__input-value"
-  );
-  const todoAppItemAll = document.querySelectorAll(".todo-app__item");
-  const btnEditAll = document.querySelectorAll(".btn--edit");
-  const btnDeleteAll = document.querySelectorAll(".btn--delete");
-  const todoAppLabelBtnAll = document.querySelectorAll(".todo-app__label-btn");
-  const radioItemAll = document.getElementsByName(`radio-item--${num}`);
-
-  // get inputValue from local storage
-  const getTodoAppInputValue = function () {
-    const inputValueStorage = localStorage.getItem("inputValue");
-
-    if (!inputValueStorage) return;
-
-    const inputValue = JSON.parse(inputValueStorage);
-
-    todoAppInputValueArr = inputValue;
-
-    todoAppInputValueArr.forEach((val, i) => {
-      const todoAppInputValue = todoAppInputValueAll[i];
-      todoAppInputValue.value = val;
-      todoAppInputValue.disabled = "true";
-    });
-  };
-  getTodoAppInputValue();
-
-  // btn edit
-  btnEditAll.forEach((btn) => {});
-};
-
-window.addEventListener("load", function () {
-  console.log("hello");
-  //  execute getUsernameFromLocalStorage function
-  getUsernameFromLocalStorage();
-
-  //  execute getItemsFromLocalStorage function
-  getItemsFromLocalStorage();
-
-  //  execute getTodoAppInputValue function
-  // getTodoAppInputValue();
+// add event on btnSort
+btnSort.addEventListener('click', function () {
+  // store the todos array in a variable
+  const todosArr = renderTodoList(!sorted);
+  // check if the array length is greater than 0
+  if (todosArr.length > 0) {
+    // manipulate sorted variable to true or false
+    sorted = !sorted;
+  }
+  // return the array
+  return todosArr;
 });
