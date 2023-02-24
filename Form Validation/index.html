@@ -16,19 +16,95 @@
   </head>
   <body>
     <div class="container">
-      <form class="form">
+      <main class="main">
         <div class="btn__container">
           <button class="btn btn--login">Log In</button>
           <button class="btn btn--registration">Register</button>
         </div>
         <div class="fonts__container">
-          <a href="http://" target="_blank">
+          <a
+            href="https://github.com/busarishakrullahi/Top-100-Projects/tree/main/Form%20Validation"
+            target="_blank"
+          >
             <svg class="fonts fonts--github">
               <use xlink:href="img/icons.svg#icon-github"></use>
             </svg>
           </a>
+          <a href="https://web.facebook.com/" target="_blank">
+            <svg class="fonts fonts--facebook">
+              <use xlink:href="img/icons.svg#icon-facebook"></use>
+            </svg>
+          </a>
+          <a href="https://web.facebook.com/" target="_blank">
+            <svg class="fonts fonts--twitter">
+              <use xlink:href="img/icons.svg#icon-twitter"></use>
+            </svg>
+          </a>
         </div>
-      </form>
+        <form class="form">
+          <section class="form__login">
+            <div class="form__input-group">
+              <input
+                type="text"
+                class="form__username"
+                name="form__username"
+                placeholder="User Name"
+              />
+            </div>
+            <div class="form__input-group">
+              <input
+                type="password"
+                name="login--password"
+                class="form__password"
+                placeholder="Enter Pasword"
+              />
+            </div>
+            <div class="form_input-group">
+              <input type="checkbox" class="form__check" />
+              <p class="text">remember password</p>
+            </div>
+            <button type="submit" class="btn btn--login-form">Submit</button>
+          </section>
+          <section class="form__registration">
+            <div class="form__input-group">
+              <input
+                type="text"
+                class="form__username"
+                placeholder="User Name"
+              />
+            </div>
+            <div class="form__input-group">
+              <input
+                type="text"
+                class="form__username"
+                name="register--email"
+                placeholder="Email"
+              />
+            </div>
+            <div class="form__input-group">
+              <input
+                type="password"
+                class="form__password"
+                name="register--passowrd"
+                placeholder="Enter Pasword"
+              />
+            </div>
+            <div class="form__input-group">
+              <input
+                type="password"
+                class="form__password"
+                name="confirm--passowrd"
+                placeholder="Confirm Pasword"
+              />
+            </div>
+            <div class="form_input-group">
+              <input type="checkbox" class="form__check" />
+              <p class="text">I agree to the terms and conditions</p>
+            </div>
+            <button type="submit" class="btn btn--register">Submit</button>
+          </section>
+        </form>
+      </main>
     </div>
   </body>
 </html>
