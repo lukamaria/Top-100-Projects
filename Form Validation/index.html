@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Form validation</title>
     <link rel="stylesheet" href="style.css" />
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
     /> -->
     <script defer src="app.js"></script>
@@ -18,92 +20,122 @@
     <div class="container">
       <main class="main">
         <div class="btn__container">
-          <button class="btn btn--login">Log In</button>
-          <button class="btn btn--registration">Register</button>
+          <div class="background-color"></div>
+          <button class="btn btn--login btn--form">Log In</button>
+          <button class="btn btn--registration btn--form">Register</button>
         </div>
         <div class="fonts__container">
           <a
             href="https://github.com/busarishakrullahi/Top-100-Projects/tree/main/Form%20Validation"
             target="_blank"
+            class="fonts__link"
           >
-            <svg class="fonts fonts--github">
+            <svg class="fonts fonts--github fonts--white">
               <use xlink:href="img/icons.svg#icon-github"></use>
             </svg>
           </a>
-          <a href="https://web.facebook.com/" target="_blank">
-            <svg class="fonts fonts--facebook">
+          <a
+            href="https://web.facebook.com/"
+            target="_blank"
+            class="fonts__link"
+          >
+            <svg class="fonts fonts--facebook fonts--white">
               <use xlink:href="img/icons.svg#icon-facebook"></use>
             </svg>
           </a>
-          <a href="https://web.facebook.com/" target="_blank">
-            <svg class="fonts fonts--twitter">
+          <a href="https://twitter.com/" target="_blank" class="fonts__link">
+            <svg class="fonts fonts--twitter fonts--white">
               <use xlink:href="img/icons.svg#icon-twitter"></use>
             </svg>
           </a>
         </div>
-        <form class="form">
-          <section class="form__login">
+        <section class="form__container">
+          <form class="form__details form__login">
             <div class="form__input-group">
               <input
                 type="text"
-                class="form__username"
-                name="form__username"
+                class="form__input form__username--login"
+                name="username"
                 placeholder="User Name"
               />
+              <span class="error-message">&nbsp;</span>
             </div>
             <div class="form__input-group">
-              <input
-                type="password"
-                name="login--password"
-                class="form__password"
-                placeholder="Enter Pasword"
-              />
+              <div class="form__control">
+                <input
+                  type="password"
+                  name="password"
+                  class="form__input form__password--login password"
+                  placeholder="Enter Password"
+                />
+                <button class="btn btn--show">
+                  <svg class="fonts icon--show">
+                    <use xlink:href="img/icons.svg#icon-eye-hidden"></use>
+                  </svg>
+                </button>
+              </div>
+              <span class="error-message">&nbsp;</span>
             </div>
-            <div class="form_input-group">
-              <input type="checkbox" class="form__check" />
-              <p class="text">remember password</p>
-            </div>
-            <button type="submit" class="btn btn--login-form">Submit</button>
-          </section>
-          <section class="form__registration">
+            <button type="submit" class="btn btn--login-form btn--submit">
+              Login Form
+            </button>
+          </form>
+          <form class="form__details form__registration">
             <div class="form__input-group">
               <input
                 type="text"
-                class="form__username"
+                class="form__input form__username--register"
+                name="username"
                 placeholder="User Name"
               />
+              <span class="error-message">&nbsp;</span>
             </div>
             <div class="form__input-group">
               <input
                 type="text"
-                class="form__username"
-                name="register--email"
+                class="form__input form__email--register"
+                name="email"
                 placeholder="Email"
               />
+              <span class="error-message">&nbsp;</span>
             </div>
             <div class="form__input-group">
-              <input
-                type="password"
-                class="form__password"
-                name="register--passowrd"
-                placeholder="Enter Pasword"
-              />
+              <div class="form__control">
+                <input
+                  type="password"
+                  class="form__input form__password--register password"
+                  name="passowrd"
+                  placeholder="Enter Password"
+                />
+                <button class="btn btn--show">
+                  <svg class="fonts icon--show">
+                    <use xlink:href="img/icons.svg#icon-eye-hidden"></use>
+                  </svg>
+                </button>
+              </div>
+              <span class="error-message">&nbsp;</span>
             </div>
             <div class="form__input-group">
-              <input
-                type="password"
-                class="form__password"
-                name="confirm--passowrd"
-                placeholder="Confirm Pasword"
-              />
+              <div class="form__control">
+                <input
+                  type="password"
+                  class="form__input confirm__password--register password"
+                  name="confirm passowrd"
+                  placeholder="Confirm Password"
+                />
+                <button class="btn--show">
+                  <svg class="fonts icon--show">
+                    <use xlink:href="img/icons.svg#icon-eye-hidden"></use>
+                  </svg>
+                </button>
+              </div>
+              <span class="error-message">&nbsp;</span>
             </div>
-            <div class="form_input-group">
-              <input type="checkbox" class="form__check" />
-              <p class="text">I agree to the terms and conditions</p>
-            </div>
-            <button type="submit" class="btn btn--register">Submit</button>
-          </section>
-        </form>
+            <button type="submit" class="btn btn--register-form btn--submit">
+              Register Form
+            </button>
+          </form>
+        </section>
       </main>
     </div>
   </body>
