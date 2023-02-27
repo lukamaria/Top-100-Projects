@@ -9,6 +9,13 @@ html {
   box-sizing: border-box;
 }
 
+/* 400px / 16 = 25em convert 400px to em 1em = 16px */
+@media screen and (max-width: 25em) {
+  html {
+    font-size: 50%;
+  }
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.7;
@@ -23,13 +30,14 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .main {
   width: 35%;
-  margin: 3rem 0;
+  margin: 2rem 0;
   background-color: #fff;
   border-radius: 0.5rem;
   padding: 4rem;
@@ -38,6 +46,41 @@ body {
   align-items: center;
   gap: 3rem;
   overflow: hidden;
+}
+
+/* 1100px / 16 = 68.75em convert 1100px to em 1em = 16px */
+@media screen and (max-width: 68.75em) {
+  .main {
+    width: 55%;
+  }
+}
+
+/* 700px / 16 = 43.75em convert 700px to em 1em = 16px */
+@media screen and (max-width: 43.75em) {
+  .main {
+    width: 65%;
+  }
+}
+
+/* 550px / 16 = 34.375em convert 550px to em 1em = 16px */
+@media screen and (max-width: 34.375em) {
+  .main {
+    width: 85%;
+  }
+}
+
+/* 440px / 16 = 27.5em convert 440px to em 1em = 16px */
+@media screen and (max-width: 27.5em) {
+  .main {
+    width: 95%;
+  }
+}
+
+/* 300px / 16 = 18.75em convert 300px to em 1em = 16px */
+@media screen and (max-width: 18.75em) {
+  .main {
+    padding: 3rem;
+  }
 }
 
 .btn {
@@ -60,6 +103,13 @@ body {
   position: relative;
 }
 
+/* 300px / 16 = 18.75em convert 300px to em 1em = 16px */
+@media screen and (max-width: 18.75em) {
+  .btn__container {
+    width: 26rem;
+  }
+}
+
 .background-color {
   content: '';
   position: absolute;
@@ -73,10 +123,24 @@ body {
   transition: transform 0.3s linear;
 }
 
+/* 300px / 16 = 18.75em convert 300px to em 1em = 16px */
+@media screen and (max-width: 18.75em) {
+  .background-color {
+    width: 13rem;
+  }
+}
+
 .btn--form {
   width: 15rem;
   font-size: 1.5rem;
   z-index: 1000;
+}
+
+/* 300px / 16 = 18.75em convert 300px to em 1em = 16px */
+@media screen and (max-width: 18.75em) {
+  .btn--form {
+    width: 13rem;
+  }
 }
 
 .form__control {
@@ -153,6 +217,7 @@ body {
 .btn--submit {
   width: 70%;
   margin: 0 auto;
+  margin-top: 2rem;
   padding: 1rem 0;
   border-radius: 3rem;
   font-size: 1.5rem;
@@ -176,6 +241,14 @@ body {
   font-size: 1.3rem;
   opacity: 0;
   visibility: hidden;
+}
+
+.footer {
+  font-size: 1.5rem;
+}
+
+.footer__link {
+  text-transform: capitalize;
 }
 
 .error {
