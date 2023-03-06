@@ -1,0 +1,143 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'lato', sans-serif;
+  line-height: 1.7;
+}
+
+.container {
+  min-height: 100vh;
+  background-color: rgb(15, 15, 27);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.movie {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.movie__select {
+  display: flex;
+  gap: 1rem;
+}
+
+.heading--4 {
+  font-size: 1.5rem;
+}
+
+.movie__items {
+  border: 0;
+  width: 20rem;
+  appearance: none;
+  padding: 0 1rem;
+  border-radius: 0.5rem;
+  font-family: inherit;
+  font-size: 1.5rem;
+}
+
+.movie__items:focus {
+  outline: none;
+}
+
+.movie__options-container {
+  background-color: rgb(9, 9, 29);
+  display: flex;
+  justify-content: space-around;
+  width: 30rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.movie__options-group {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.movie__seat {
+  width: 1.5rem;
+  height: 1.2rem;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+}
+
+.movie__options-text {
+  font-size: 1.3rem;
+  color: #ffffff69;
+}
+
+.movie__seat--empty {
+  background-color: #ffffff69;
+}
+
+.movie__seat--selected {
+  background-color: aqua;
+}
+
+.movie__seat--occupied {
+  background-color: #fff;
+}
+
+.movie__screen {
+  width: 20rem;
+  height: 5rem;
+  background-color: #fff;
+  -webikit-clip-path: polygon(
+    0% 0%,
+    5% 100%,
+    25% 100%,
+    25% 100%,
+    96% 100%,
+    100% 0%
+  );
+  clip-path: polygon(0% 0%, 5% 100%, 25% 100%, 25% 100%, 96% 100%, 100% 0%);
+}
+
+.movie__seat-container {
+  display: flex;
+  gap: 2rem;
+}
+
+.btn {
+  border: 0;
+  margin: 0.4rem;
+}
+
+.btn--empty {
+  cursor: pointer;
+}
+
+.btn--empty:hover {
+  transform: scale(1.2);
+}
+
+.movie__seat--first,
+.movie__seat--last {
+  width: 5rem;
+}
+
+.movie__seat--middle {
+  width: 11rem;
+}
+
+.movie__paragraph {
+  font-size: 1.6rem;
+}
+
+.movie__count {
+  color: aqua;
+}

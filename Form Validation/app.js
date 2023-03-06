@@ -1,3 +1,5 @@
+'use strict';
+
 // select element
 const btnContainer = document.querySelector('.btn__container');
 const backgroundColorMove = document.querySelector('.background-color');
