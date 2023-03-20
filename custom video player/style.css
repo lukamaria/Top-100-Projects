@@ -1,0 +1,314 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+/* 600px / 16 = 37.5em to convert 600px to em */
+@media only screen and (max-width: 37.5em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: AliceBlue;
+}
+
+.video {
+  width: 70%;
+  height: 80vh;
+  position: relative;
+  border-radius: 0.5rem;
+  z-index: 100;
+  background-color: #000;
+  overflow: hidden;
+}
+
+/* 900px / 16 = 56.25em to convert 900px to em */
+@media only screen and (max-width: 56.25em) {
+  .video {
+    width: 90%;
+  }
+}
+
+/* 700px / 16 = 43.75em to convert 700px to em */
+@media only screen and (max-width: 43.75em) {
+  .video {
+    width: 97%;
+  }
+}
+
+.video__element {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+/* 700px / 16 = 43.75em to convert 700px to em */
+@media only screen and (max-width: 43.75em) {
+  .video__element {
+    object-fit: contain;
+  }
+}
+
+.video__customized {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 7rem;
+}
+
+/* 500px / 16 = 31.25em to convert 500px to em */
+@media only screen and (max-width: 31.25em) {
+  .video__customized {
+    height: 10rem;
+  }
+}
+
+.video__progressbar-container {
+  position: relative;
+  height: 0.5rem;
+  background-color: #ffffffea;
+  cursor: pointer;
+}
+
+.video__progressabr-tooltip {
+  background-color: #ffffffea;
+  font-size: 1.3rem;
+  position: absolute;
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.video__progressabr-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 0.5rem;
+  border-style: solid;
+  border-color: #ffffffea transparent transparent transparent;
+}
+
+.video__progressbar {
+  width: 0;
+  height: 0.5rem;
+  background-color: #0088ff;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.video__progressbar::before {
+  content: '';
+  position: absolute;
+  width: 1.3rem;
+  height: 1.3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0%;
+  background-color: #007fff;
+  border-radius: 100%;
+}
+
+.video__progressabr-tooltip,
+.video__progressbar::before {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.video__progressbar-container:hover .video__progressabr-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video__progressbar-container:hover .video__progressbar::before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.video__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  padding: 1.5rem 2rem;
+}
+
+/* 280px / 16 = 17.5em to convert 280px to em */
+@media only screen and (max-width: 17.5em) {
+  .video__content {
+    padding: 1.5rem 0.2rem;
+  }
+}
+
+.video__volume {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.video__volume-slider {
+  display: inline-block;
+  width: 7rem;
+  height: 0.5rem;
+  cursor: pointer;
+}
+
+/* 350px / 16 = 21.875em to convert 350px to em */
+@media only screen and (max-width: 21.875em) {
+  .video__volume-slider {
+    width: 5rem;
+  }
+}
+
+/* 280px / 16 = 17.5em to convert 280px to em */
+@media only screen and (max-width: 17.5em) {
+  .video__volume-slider {
+    width: 4rem;
+  }
+}
+
+.video__time {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+/* 350px / 16 = 21.875em to convert 350px to em */
+@media only screen and (max-width: 21.875em) {
+  .video__time {
+    font-size: 1.2rem;
+  }
+}
+
+/* 280px / 16 = 17.5em to convert 280px to em */
+@media only screen and (max-width: 17.5em) {
+  .video__time {
+    font-size: 1rem;
+  }
+}
+
+.icon {
+  width: 3rem;
+  height: 3rem;
+  fill: #fff;
+}
+
+/* 350px / 16 = 21.875em to convert 350px to em */
+@media only screen and (max-width: 21.875em) {
+  .icon {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+/* 280px / 16 = 17.5em to convert 280px to em */
+@media only screen and (max-width: 17.5em) {
+  .icon {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+}
+
+.btn {
+  cursor: pointer;
+  border: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.video__controls,
+.video__details {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* 500px / 16 = 31.25em to convert 500px to em */
+@media only screen and (max-width: 31.25em) {
+  .video__controls {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 3rem;
+  }
+}
+
+.video__play-rate {
+  position: relative;
+}
+
+.video__speed {
+  width: 10rem;
+  cursor: pointer;
+  position: absolute;
+  top: -17rem;
+  left: -250%;
+  list-style: none;
+  background-color: aliceblue;
+  border-radius: 0.3rem;
+  font-size: 1.5rem;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.video__speed--value {
+  padding: 0.5rem 2rem;
+}
+
+.footer {
+  margin-top: 6rem;
+  font-size: 1.5rem;
+}
+
+.footer__link {
+  text-transform: capitalize;
+}
+
+/* these class are use to manipulate html element in javascript */
+.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.active {
+  background-color: #007fff;
+  color: #fff;
+}
+
+.hidden {
+  bottom: -5rem;
+  opacity: 0;
+  visibility: hidden;
+}
