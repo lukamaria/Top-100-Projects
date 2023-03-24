@@ -132,13 +132,13 @@ stopBtn.addEventListener('click', function () {
 // add click event on fastforward button
 fastForwardBtn.addEventListener('click', function () {
   // add 5 secs to video current time
-  mainVideo.currentTime += 60;
+  mainVideo.currentTime += 5;
 });
 
 // add click event on rewind button
 rewindBtn.addEventListener('click', function () {
   // substract 5 secs to video current time
-  mainVideo.currentTime -= 60;
+  mainVideo.currentTime -= 5;
 });
 
 // add click event on slow motion button
@@ -255,10 +255,15 @@ progressBarContainer.addEventListener('mouseup', function () {
 
 // add mousemove event on progressBarContainer
 progressBarContainer.addEventListener('mousemove', function (e) {
+  // select tooltip element
   const toolTip = this.querySelector('.video__progressabr-tooltip');
+  // set left properties on tooltip to offsetX value
   toolTip.style.left = `${e.offsetX}px`;
+  // get the container width
   const progressBarContainerWidth = this.clientWidth;
+  // get the tooltip time dynamically
   const toolTipTime =
     (e.offsetX / progressBarContainerWidth) * mainVideo.duration;
+  // set the tooltip time value to tooltip textcontent
   toolTip.textContent = formatTime(toolTipTime);
 });

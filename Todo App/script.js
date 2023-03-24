@@ -45,11 +45,19 @@ btnChange.addEventListener('click', function () {
   }
 });
 
+// select item that does not contains checked class
+const selectItemNotChecked = function () {
+  // select all item that are not checked
+  const itemNotChecked = document.querySelectorAll(
+    '.todo-app__input-value:not(.checked)'
+  );
+
+  // set todos length to todoAppItemLeftNum
+  todoAppItemLeft.textContent = itemNotChecked.length;
+};
+
 // set todos to local storage dynamically
 let todos = JSON.parse(localStorage.getItem('todos')) || [];
-
-// set todoAppItemLeftNum to local storage dynamically
-let todoAppItemLeftNum = JSON.parse(localStorage.getItem('itemLeft')) || '';
 
 window.addEventListener('load', function (e) {
   // get username value from local storgae
@@ -65,8 +73,10 @@ window.addEventListener('load', function (e) {
     // prevent form from submitting
     e.preventDefault();
 
+    // check if there input is empty string
     if (!todoAppSearchInput.value) return;
 
+    // check if there is space inside the input field
     if (/^\s/.test(todoAppSearchInput.value)) {
       todoAppSearchInput.value = '';
       return;
@@ -85,18 +95,11 @@ window.addEventListener('load', function (e) {
     // set todos to local storage
     localStorage.setItem('todos', JSON.stringify(todos));
 
-    // set todos length to todoAppItemLeftNum
-    todoAppItemLeftNum = todos.length;
-
-    console.log(todoAppItemLeftNum);
-    // set todoAppItemLeft to todoAppItemLeftNum when the form is submit
-    todoAppItemLeft.textContent = todoAppItemLeftNum;
-
-    // set todoAppItemLeftNum to local storage
-    localStorage.setItem('itemLeft', JSON.stringify(todoAppItemLeftNum));
-
     // render todo list element to user interface
     renderTodoList();
+
+    // execute selectItemNotChecked function
+    selectItemNotChecked();
 
     // reset the form
     e.target.reset();
@@ -105,18 +108,12 @@ window.addEventListener('load', function (e) {
   // render todo list when the page load
   renderTodoList();
 
-  // set todoAppItemLeft to todoAppItemLeftNum when page load
-  todoAppItemLeft.textContent = todoAppItemLeftNum;
-
-  // reset todoAppItemLeft and todoAppItemLeftNum
-  if (todoAppItemLeftNum < 1) {
-    todoAppItemLeft.textContent = 0;
-    todoAppItemLeftNum = 0;
-    localStorage.setItem('itemLeft', todoAppItemLeftNum);
-  }
+  // execute selectItemNotChecked function
+  selectItemNotChecked();
 });
 
 const renderTodoList = function (sorted = false) {
+  // set the todoAppList to empty string
   todoAppList.innerHTML = '';
 
   // sort todos
@@ -173,6 +170,12 @@ const renderTodoList = function (sorted = false) {
     todoAppItem.append(btnContainer);
     todoAppList.append(todoAppItem);
 
+    // add click event on label
+    label.addEventListener('click', function () {
+      // execute selectItemNotChecked function
+      selectItemNotChecked();
+    });
+
     // add event to edit button
     btnEdit.addEventListener('click', function (e) {
       // 1) remove disabled attribute from textarea
@@ -199,27 +202,17 @@ const renderTodoList = function (sorted = false) {
       // remove item from dom
       todoAppItem.remove();
 
+      // execute selectItemNotChecked function
+      selectItemNotChecked();
+
       // get index number of item from todos array
       const index = todos.findIndex(el => textarea.value === el.searchValue);
-      console.log(index);
 
       // delete item from todos array
       todos.splice(index, 1);
 
       // restore local storage
       localStorage.setItem('todos', JSON.stringify(todos));
-
-      // todo.checked is true set todoAppItemLeft to value of todoAppItemLeftNum in local storage
-      if (todo.checked) {
-        todoAppItemLeft.textContent = todoAppItemLeftNum;
-      }
-
-      // todo.checked is false decrease the value and reset it to local storage
-      if (!todo.checked) {
-        todoAppItemLeftNum--;
-        todoAppItemLeft.textContent = todoAppItemLeftNum;
-        localStorage.setItem('itemLeft', todoAppItemLeftNum);
-      }
     });
 
     // add personal class to element that have personal value
@@ -244,24 +237,13 @@ const renderTodoList = function (sorted = false) {
       // set todo.checked to true
       todo.checked = e.target.checked;
 
+      // check if the todo.checked is true
       if (todo.checked) {
         // add checked class to textarea
         textarea.classList.add('checked');
-        // decrease the todoAppItemLeftNum value when todo.checked is true
-        todoAppItemLeftNum--;
-        // set the value to local storage
-        localStorage.setItem('itemLeft', JSON.stringify(todoAppItemLeftNum));
-        // set todoAppItemLeftNum value to todoAppItemLeft
-        todoAppItemLeft.textContent = todoAppItemLeftNum;
       } else {
         // remove checked class todo.checked is false
         textarea.classList.remove('checked');
-        // increase the todoAppItemLeftNum value when todo.checked is false
-        todoAppItemLeftNum++;
-        // set the value to local storage
-        localStorage.setItem('itemLeft', JSON.stringify(todoAppItemLeftNum));
-        // set todoAppItemLeftNum value to todoAppItemLeft
-        todoAppItemLeft.textContent = todoAppItemLeftNum;
       }
 
       // restore todos to local storage
@@ -293,6 +275,7 @@ const renderTodoList = function (sorted = false) {
       }
     });
   });
+
   return todosSort;
 };
 
