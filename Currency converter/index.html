@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <main class="currency">
+      <figure class="currency__container-img">
+        <img src="img/money.png" alt="currency image" class="currency__img" />
+        <figcaption class="currency__caption">
+          <h1 class="heading--1">Currency Conversion Calculate</h1>
+        </figcaption>
+      </figure>
+      <p class="paragraph">
+        Choose the currency and the amounts to get the exchange rate 💰💰💰
+      </p>
+      <div class="currency__content">
+        <section class="currency__input-group">
+          <select class="currency__select-items currency__select-items--1">
+            <option value="AED">AED</option>
+            <option value="AFN">AFN</option>
+            <option value="ALL">ALL</option>
+            <option value="AMD">AMD</option>
+            <option value="ANG">ANG</option>
+            <option value="AOA">AOA</option>
+            <option value="ARS">ARS</option>
+            <option value="AUD">AUD</option>
+            <option value="AWG">AWG</option>
+            <option value="USD">USD</option>
+            <option value="AZN">AZN</option>
+            <option value="NGN">NGN</option>
+            <option value="BAM">BAM</option>
+            <option value="BBD">BBD</option>
+            <option value="GBP">GBP</option>
+            <option value="EUR">EUR</option>
+          </select>
+          <input type="number" class="currency__amount currency__amount--1" />
+        </section>
+        <div class="container__btn">
+          <button class="btn btn--swap">Swap</button>
+          <p class="text"></p>
+        </div>
+        <section class="currency__input-group">
+          <select class="currency__select-items currency__select-items--2">
+            <option value="AED">AED</option>
+            <option value="AFN">AFN</option>
+            <option value="ALL">ALL</option>
+            <option value="AMD">AMD</option>
+            <option value="ANG">ANG</option>
+            <option value="AOA">AOA</option>
+            <option value="ARS">ARS</option>
+            <option value="AUD">AUD</option>
+            <option value="AWG">AWG</option>
+            <option value="USD">USD</option>
+            <option value="AZN">AZN</option>
+            <option value="NGN">NGN</option>
+            <option value="BAM">BAM</option>
+            <option value="BBD">BBD</option>
+            <option value="GBP">GBP</option>
+            <option value="EUR">EUR</option>
+          </select>
+          <input
+            type="number"
+            class="currency__amount currency__amount--2"
+            placeholder="0"
+            disabled
+          />
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

@@ -184,7 +184,11 @@ const renderTodoList = function (sorted = false) {
       // 2) set cursor to auto
       textarea.style.cursor = 'auto';
 
-      // 3) add event to textarea to resave the value to local storage and add disabled attribute, set cursor to not-allowed
+      // 3) set focus on textarea
+      if (e.target) {
+        textarea.focus();
+      }
+      // 4) add event to textarea to resave the value to local storage and add disabled attribute, set cursor to not-allowed
       textarea.addEventListener('blur', function (e) {
         // set attributes disabled to true on textarea
         textarea.disabled = 'true';

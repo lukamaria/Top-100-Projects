@@ -47,18 +47,13 @@ html {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   line-height: 1.7;
-  overflow: auto;
 }
 
 .container {
   background-color: rgb(14, 4, 17);
-  width: 100%;
   height: 100vh;
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
 }
 
 .background-image {
@@ -69,7 +64,8 @@ body {
   width: 100%;
   height: 40%;
   background-position: center;
-  background-size: auto;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .todo-app {
@@ -114,6 +110,7 @@ body {
 @media only screen and (max-width: 40.3125em) {
   .todo-app {
     width: 97%;
+    padding: 1.5rem 1rem;
   }
 }
 
@@ -125,7 +122,6 @@ body {
 
 .todo-app__title {
   width: 100%;
-  text-align: left;
   display: flex;
   justify-content: space-between;
   margin-bottom: 1rem;
@@ -137,6 +133,7 @@ body {
 }
 
 .todo-app__title-name {
+  width: 50%;
   color: white;
   background-color: transparent;
   border: 0;
@@ -189,7 +186,7 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* 350px / 16 = 21.875em to convert to em */
+/* 350px/ 16 = 21.875em to 350px convert to 31.25em */
 @media only screen and (max-width: 21.875em) {
   .todo-app__category-group {
     flex-direction: column;
@@ -214,7 +211,7 @@ body {
   gap: 1vh;
 }
 
-/* 350px / 16 = 21.875em to convert to em */
+/* 350px / 16 = 21.875 to convert 350px to 21.875em */
 @media only screen and (max-width: 21.875em) {
   .todo-app__label {
     width: 100%;
@@ -328,6 +325,7 @@ body {
 }
 
 .todo-app__details {
+  width: 100%;
   background-color: rgb(50, 4, 64);
   border-radius: 0.5rem;
 }
