@@ -1,68 +1,107 @@
 'use strict';
-const selectItems1 = document.querySelector('.currency__select-items--1');
-const selectItems2 = document.querySelector('.currency__select-items--2');
-const amount1 = document.querySelector('.currency__amount--1');
-const amount2 = document.querySelector('.currency__amount--2');
-const swapBtn = document.querySelector('.btn--swap');
-const text = document.querySelector('.text');
 
-selectItems1.selectedIndex = 9;
-selectItems2.selectedIndex = 14;
+// select element
+const currencyForm = document.querySelector('.currency');
+const amount = document.querySelector('.currency__input--amount');
+const amountFrom = document.querySelector('.currency__input--from');
+const amountTo = document.querySelector('.currency__input--to');
+const currencyResult = document.querySelector('.currency__result');
+const currencyInput = document.querySelectorAll('.currency__input');
 
-let resultFrom = selectItems1.value;
-let resultTo = selectItems2.value;
+const renderResult = async function () {
+  try {
+    // 1) get input value from the user
+    const amountValue = amount.value;
+    const amountFromValue = amountFrom.value;
+    const amountToValue = amountTo.value;
+    currencyResult.textContent = 'Getting Exchange Rate...';
 
-console.log(resultFrom);
+    console.log(amountValue, amountFromValue, amountToValue);
+    // 2) call the exchange rate api and pass the user value to the api
+    const myHeaders = new Headers();
+    myHeaders.append('apikey', 'kb764hHCD3XOVn38RjdgBnH5KTDWxzIb');
 
-const rateConverter = async function (rate) {
-  const res = await fetch(
-    `https://v6.exchangerate-api.com/v6/3d2017983106ddff1b9f470b/latest/${rate}`
-  );
-  const data = await res.json();
-  const currency = data.conversion_rates;
-  console.log(currency);
-  return currency;
-};
+    const requestOptions = {
+      method: 'GET',
+      redirect: 'follow',
+      headers: myHeaders,
+    };
 
-selectItems1.addEventListener('change', function (e) {
-  resultFrom = e.target.value;
-  displayResult();
-});
+    const res = await fetch(
+      `https://api.apilayer.com/exchangerates_data/convert?to=${amountToValue}&from=${amountFromValue}&amount=${amountValue}`,
+      requestOptions
+    );
 
-selectItems2.addEventListener('change', function (e) {
-  resultTo = e.target.value;
-  displayResult();
-});
+    // 3) if the value is not found, it should throw an error
+    if (!res.ok)
+      throw new Error(`Your query is not found (staus code ${res.status})`);
 
-const displayResult = async function () {
-  const currency = await rateConverter(resultFrom);
+    // 4) convert the api response to json frmat
+    const data = await res.json();
 
-  const result1 = currency[resultFrom];
-  const result2 = currency[resultTo];
-
-  amount1.value = 1;
-
-  amount2.value = ((result2 / result1) * amount1.value).toFixed(4);
-  text.textContent = `1 ${resultFrom} = ${((result2 / result1) * 1).toFixed(
-    4
-  )} ${resultTo}`;
-  amount1.addEventListener('input', function (e) {
-    amount2.value = ((result2 / result1) * amount1.value).toFixed(4);
-    text.textContent = `1 ${resultFrom} = ${((result2 / result1) * 1).toFixed(
-      4
-    )} ${resultTo}`;
-  });
-};
-
-displayResult();
-
-swapBtn.addEventListener('click', function (e) {
-  if (e.target) {
-    resultFrom = selectItems2.value;
-    resultTo = selectItems1.value;
-    const index = selectItems1.selectedIndex;
-    selectItems1.selectedIndex = selectItems2.selectedIndex;
-    selectItems2.selectedIndex = index;
-    displayResult();
+    // 5) render the result to user interface
+    currencyResult.textContent = `${amountValue} ${amountFromValue} = ${data.result} ${amountToValue}`;
+  } catch (e) {
+    // set error message to currency result
+    currencyResult.textContent = `${e.message}`;
   }
+};
+
+//
+currencyForm.addEventListener('submit', function (e) {
+  // prevent page from loading when the form is submit
+  e.preventDefault();
+  // execute the renderResult function
+  renderResult();
+});
+
+// create a success message function
+const renderSuccess = function (input) {
+  // 1) select the parent element of the input
+  const currencyControl = input.parentElement;
+  // 2) select the svg elemet of the input
+  const svg = currencyControl.querySelector('svg');
+  // 3) insert the success icon into the svg element
+  svg.innerHTML = `
+    <use xlink:href="img/icons.svg#icon-checkmark"></use>
+  `;
+  // 4) add and remove class
+  input.classList.add('input-success');
+  svg.classList.add('icon-success');
+  input.classList.remove('input-error');
+  svg.classList.remove('icon-error');
+  // 5) select the pseudo element and reset the border property
+  document.querySelector('.currency__input:focus').style.border =
+    '1px solid green';
+};
+
+const renderError = function (input) {
+  // 1) select the parent element of the input
+  const currencyControl = input.parentElement;
+  // 2) select the svg elemet of the input
+  const svg = currencyControl.querySelector('svg');
+  // 3) insert the success icon into the svg element
+  svg.innerHTML = `
+        <use xlink:href="img/icons.svg#icon-error_outline"></use>
+    `;
+  // 4) add and remove class
+  input.classList.remove('input-success');
+  svg.classList.remove('icon-success');
+  input.classList.add('input-error');
+  svg.classList.add('icon-error');
+  // 5) select the pseudo element and reset the border property
+  document.querySelector('.currency__input:focus').style.border =
+    '1px solid red';
+};
+
+// set input event on each input element
+currencyInput.forEach(input => {
+  input.addEventListener('input', function () {
+    // if the value passed in is not empty string renderSuccess function or renderError function
+    if (input.value !== '') {
+      renderSuccess(input);
+    } else {
+      renderError(input);
+    }
+  });
 });

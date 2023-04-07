@@ -5,73 +5,83 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Currency Converter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <script defer src="app.js"></script>
   </head>
   <body>
-    <main class="currency">
-      <figure class="currency__container-img">
-        <img src="img/money.png" alt="currency image" class="currency__img" />
-        <figcaption class="currency__caption">
-          <h1 class="heading--1">Currency Conversion Calculate</h1>
-        </figcaption>
-      </figure>
-      <p class="paragraph">
-        Choose the currency and the amounts to get the exchange rate 💰💰💰
-      </p>
-      <div class="currency__content">
-        <section class="currency__input-group">
-          <select class="currency__select-items currency__select-items--1">
-            <option value="AED">AED</option>
-            <option value="AFN">AFN</option>
-            <option value="ALL">ALL</option>
-            <option value="AMD">AMD</option>
-            <option value="ANG">ANG</option>
-            <option value="AOA">AOA</option>
-            <option value="ARS">ARS</option>
-            <option value="AUD">AUD</option>
-            <option value="AWG">AWG</option>
-            <option value="USD">USD</option>
-            <option value="AZN">AZN</option>
-            <option value="NGN">NGN</option>
-            <option value="BAM">BAM</option>
-            <option value="BBD">BBD</option>
-            <option value="GBP">GBP</option>
-            <option value="EUR">EUR</option>
-          </select>
-          <input type="number" class="currency__amount currency__amount--1" />
-        </section>
-        <div class="container__btn">
-          <button class="btn btn--swap">Swap</button>
-          <p class="text"></p>
+    <form class="currency">
+      <h1 class="heading--1">Exchange rate calculate</h1>
+      <div class="currency__input-group">
+        <label class="currency__title">amount:</label>
+        <div class="currency__input-content">
+          <div class="currency__control">
+            <input
+              type="text"
+              class="currency__input currency__input--amount"
+              placeholder="20"
+            />
+            <svg class="icon">&nbsp;</svg>
+          </div>
+          <p class="currency__text">
+            <strong>REQUIRED:</strong>The amount to be converted.
+          </p>
         </div>
-        <section class="currency__input-group">
-          <select class="currency__select-items currency__select-items--2">
-            <option value="AED">AED</option>
-            <option value="AFN">AFN</option>
-            <option value="ALL">ALL</option>
-            <option value="AMD">AMD</option>
-            <option value="ANG">ANG</option>
-            <option value="AOA">AOA</option>
-            <option value="ARS">ARS</option>
-            <option value="AUD">AUD</option>
-            <option value="AWG">AWG</option>
-            <option value="USD">USD</option>
-            <option value="AZN">AZN</option>
-            <option value="NGN">NGN</option>
-            <option value="BAM">BAM</option>
-            <option value="BBD">BBD</option>
-            <option value="GBP">GBP</option>
-            <option value="EUR">EUR</option>
-          </select>
-          <input
-            type="number"
-            class="currency__amount currency__amount--2"
-            placeholder="0"
-            disabled
-          />
-        </section>
       </div>
-    </main>
+      <div class="currency__input-group">
+        <label class="currency__title">from:</label>
+        <div class="currency__input-content">
+          <div class="currency__control">
+            <input
+              type="text"
+              class="currency__input currency__input--from"
+              placeholder="NGN"
+            />
+            <svg class="icon">&nbsp;</svg>
+          </div>
+          <p class="currency__text">
+            <strong>REQUIRED:</strong>The three-letter currency code of the
+            currency you would like to convert from.
+          </p>
+        </div>
+      </div>
+      <div class="currency__input-group">
+        <label class="currency__title">to:</label>
+        <div class="currency__input-content">
+          <div class="currency__control">
+            <input
+              type="text"
+              class="currency__input currency__input--to"
+              placeholder="EUR"
+            />
+            <svg class="icon">&nbsp;</svg>
+          </div>
+          <p class="currency__text">
+            <strong>REQUIRED:</strong>The three-letter currency code of the
+            currency you would like to convert to.
+          </p>
+        </div>
+      </div>
+      <p class="currency__result">&nbsp;</p>
+      <div class="btn-container">
+        <button type="submit" class="btn btn--exchange btn--rate">
+          get exchange rate
+        </button>
+      </div>
+    </form>
+    <footer class="footer">
+      Design by
+      <a
+        href="https://github.com/busarishakrullahi/Top-100-Projects/tree/main/Currency%20converter"
+        target="_blank"
+        class="footer__link"
+        >busari shakrullahi</a
+      >
+    </footer>
   </body>
 </html>
