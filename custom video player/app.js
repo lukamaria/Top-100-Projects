@@ -213,6 +213,16 @@ volumeBtn.addEventListener('click', function () {
 volumeSlider.addEventListener('input', function () {
   // passing the value getting from volumeSlider to mainVideo volume properties
   mainVideo.volume = this.value;
+  // change the volume icon when the volume is equal to 0
+  if (mainVideo.volume === 0) {
+    document.querySelector(
+      '.volume-icon'
+    ).innerHTML = `<use xlink:href="img/icons.svg#icon-volume1"></use>`;
+  } else {
+    document.querySelector(
+      '.volume-icon'
+    ).innerHTML = `<use xlink:href="img/icons.svg#icon-volume"></use>`;
+  }
 });
 
 // get the progressBarContainer width and set the video currentTime dynamically
