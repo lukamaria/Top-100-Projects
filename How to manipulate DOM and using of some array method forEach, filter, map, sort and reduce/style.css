@@ -178,6 +178,26 @@ body {
   }
 }
 
+.error {
+  width: 100%;
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.error__icon {
+  width: 4rem;
+  height: 4rem;
+  fill: red;
+  transform: translateY(-1rem);
+}
+
+.error__text {
+  font-size: 1.6rem;
+}
+
 .footer {
   margin-top: 6rem;
   font-size: 1.7rem;

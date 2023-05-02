@@ -48,8 +48,27 @@ const getRandomUser = async function () {
     renderUser();
     console.log(userInfoArr);
   } catch (e) {
-    console.log(e.message);
+    RenderErrorMessage(e.message);
   }
+};
+
+// insert error element to the dom
+const RenderErrorMessage = function (message) {
+  // set userDetails to empty string
+  userDetails.innerHTML = '';
+
+  // create the html markup for error message
+  const markup = `
+    <div class="error">
+      <svg class="error__icon">
+        <use xlink:href="img/icon.svg#icon-alert-triangle"></use>
+      </svg>
+      <p class="error__text">${message}</p>
+    </div>
+  `;
+
+  // insert the element to the dom
+  userDetails.insertAdjacentHTML('afterbegin', markup);
 };
 
 // when click on btnAddUser add another user to the user interface
