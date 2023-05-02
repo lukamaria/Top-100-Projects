@@ -1,0 +1,188 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+/* convert 1em equal 16px, 350px / 16 = 21.875em  */
+@media only screen and (max-width: 21.875em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 0;
+  gap: 2rem;
+  background-color: #f4f4f4;
+}
+
+/* convert 1em equal 16px, 350px / 16 = 21.875em  */
+@media only screen and (max-width: 21.875em) {
+  body {
+    padding: 1rem 0;
+  }
+}
+
+.user {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  gap: 2rem;
+}
+
+/* convert 1em equal 16px, 1203px / 16 = 75.1875em  */
+@media only screen and (max-width: 75.1875em) {
+  .user {
+    width: 75%;
+  }
+}
+
+/* convert 1em equal 16px, 955px / 16 = 59.6875em  */
+@media only screen and (max-width: 59.6875em) {
+  .user {
+    width: 97%;
+  }
+}
+
+/* convert 1em equal 16px, 661px / 16 = 41.3125em  */
+@media only screen and (max-width: 41.3125em) {
+  .user {
+    flex-direction: column;
+  }
+}
+
+.heading--1 {
+  font-size: 3.5rem;
+  text-transform: capitalize;
+}
+
+/* convert 1em equal 16px, 740px / 16 = 46.25em  */
+@media only screen and (max-width: 46.25em) {
+  .heading--1 {
+    font-size: 2.5rem;
+  }
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 50%;
+}
+
+/* convert 1em equal 16px, 661px / 16 = 41.3125em  */
+@media only screen and (max-width: 41.3125em) {
+  .btn-container {
+    width: 100%;
+    order: 2;
+    align-items: center;
+  }
+}
+
+.btn {
+  border: 1px solid #000;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+/* convert 1em equal 16px, 740px / 16 = 46.25em  */
+@media only screen and (max-width: 46.25em) {
+  .btn {
+    font-size: 1.3rem;
+  }
+}
+
+/* convert 1em equal 16px, 661px / 16 = 41.3125em  */
+@media only screen and (max-width: 41.3125em) {
+  .btn {
+    width: 70%;
+  }
+}
+
+/* convert 1em equal 16px, 350px / 16 = 21.875em  */
+@media only screen and (max-width: 21.875em) {
+  .btn {
+    width: 97%;
+  }
+}
+
+.user__content {
+  border-left: 1px solid #000;
+  min-height: 35rem;
+  padding: 1.5rem;
+  width: 100%;
+}
+
+/* convert 1em equal 16px, 661px / 16 = 41.3125em  */
+@media only screen and (max-width: 41.3125em) {
+  .user__content {
+    order: 1;
+  }
+}
+
+.user__description,
+.user__data,
+.user__value {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1.5rem;
+  text-transform: capitalize;
+}
+
+/* convert 1em equal 16px, 350px / 16 = 21.875em  */
+@media only screen and (max-width: 21.875em) {
+  .user__data {
+    gap: 0.5rem;
+  }
+}
+
+.user__description {
+  border-bottom: 1px solid #000;
+  margin-bottom: 1.5rem;
+}
+
+.user__value {
+  background-color: #fff;
+  border-bottom: 1px solid #000;
+  padding: 1rem;
+}
+
+.heading--2,
+.user__text {
+  font-size: 2rem;
+}
+
+/* convert 1em equal 16px, 740px / 16 = 46.25em  */
+@media only screen and (max-width: 46.25em) {
+  .heading--2,
+  .user__text {
+    font-size: 1.5rem;
+  }
+}
+
+.footer {
+  margin-top: 6rem;
+  font-size: 1.7rem;
+}
+
+.footer__link {
+  text-transform: capitalize;
+}
