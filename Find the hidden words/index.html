@@ -8,5 +8,98 @@
     <script defer src="app.js"></script>
     <title>Find The Hidden Words</title>
   </head>
-  <body></body>
+  <body>
+    <div class="hangman">
+      <div class="hangman__description">
+        <h1 class="heading--1">hangman</h1>
+        <p class="hangman__paragraphy">Find the hidden word -Enter a letter</p>
+      </div>
+      <main class="hangman__game">
+        <div class="hangman__content">
+          <div class="hangman__hanger-container">
+            <div class="hangman__hanger">
+              <div
+                class="hangman__hanger-line hangman__hanger-line--vertical-line--1"
+              ></div>
+              <div
+                class="hangman__hanger-line hangman__hanger-line--vertical-line--2"
+              ></div>
+              <div
+                class="hangman__hanger-line--circle hangman__body-hidden"
+              ></div>
+              <div
+                class="hangman__hanger-line hangman__hanger-line--vertical-line--3 hangman__body-hidden"
+              ></div>
+              <div
+                class="hangman__hanger-line hangman__hanger-line--vertical-line--4 hangman__body-hidden"
+              ></div>
+              <div
+                class="hangman__hanger-line hangman__hanger-line--vertical-line--5 hangman__body-hidden"
+              ></div>
+              <div
+                class="hangman__hanger-line hangman__hanger-line--vertical-line--6 hangman__body-hidden"
+              ></div>
+              <div
+                class="hangman__hanger-line hangman__hanger-line--vertical-line--7 hangman__body-hidden"
+              ></div>
+              <div
+                class="hangman__hanger-line hangman__hanger-line--horizontal-line--1"
+              ></div>
+              <div
+                class="hangman__hanger-line hangman__hanger-line--horizontal-line--2"
+              ></div>
+            </div>
+          </div>
+          <div class="hangman__wrong-letter">
+            <div class="hangman__wrong-letter-container">
+              &nbsp;
+              <p
+                class="hangman__paragraphy hangman__wrong-letter-paragraphy hidden"
+              >
+                Wrong
+              </p>
+              <p class="hangman__wrong-letter--text hidden">&nbsp;</p>
+            </div>
+          </div>
+        </div>
+        <div class="hangman__details">
+          <h2 class="heading--2 hangman__letter-press">
+            &nbsp;
+            <!-- <span class="hangman__border">p</span>
+            <span class="hangman__border">r</span>
+            <span class="hangman__border">o</span>
+            <span class="hangman__border">g</span>
+            <span class="hangman__border">r</span>
+            <span class="hangman__border">a</span>
+            <span class="hangman__border">m</span>
+            <span class="hangman__border">m</span>
+            <span class="hangman__border">i</span>
+            <span class="hangman__border">n</span>
+            <span class="hangman__border">g</span> -->
+          </h2>
+        </div>
+      </main>
+
+      <div class="hangman__notification notification-hidden">
+        <p class="hangman__paragraphy hangman__notification-text">
+          You already entered this letter
+        </p>
+      </div>
+      <footer class="footer">
+        Design by
+        <a
+          href="https://github.com/busarishakrullahi/Top-100-Projects/tree/main/Form%20Validation"
+          target="_blank"
+          class="footer__link"
+          >busari shakrullahi</a
+        >
+      </footer>
+      <div class="modal hidden">
+        <div class="modal__popup">
+          <h2 class="heading--2 modal__text">Unfortunately you lose 😁</h2>
+          <button class="btn btn--play-again">Play Again</button>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
