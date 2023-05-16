@@ -81,6 +81,15 @@ const renderError = function () {
     wrongLetterText.innerHTML = `${wrongLetter.map(
       letter => `<span>${letter}</span>`
     )}`;
+  } else {
+    // add the hidden class from wrong letter paragraphy
+    wrongLetterParagraphy.classList.add('hidden');
+
+    // add the hidden class from wrong letter text
+    wrongLetterText.classList.add('hidden');
+
+    // set the wrong letter text to an empty string
+    wrongLetterText.innerHTML = ``;
   }
 
   // build the hangman diagram when the user pressed wrong letter
