@@ -192,6 +192,14 @@ body {
   visibility: visible;
 }
 
+@media only screen and (hover: none) {
+  .recipe__img-caption {
+    opacity: 1;
+    visibility: visible;
+    background-color: #00000065;
+  }
+}
+
 .recipe__details {
   width: 70%;
   margin: 0 auto;
