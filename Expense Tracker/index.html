@@ -3,8 +3,119 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0 maximum-scale=1"
+    />
     <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div class="tracker">
+      <h1 class="heading--1 tracker__heading--1">Expense Tracker</h1>
+      <main class="tracker__details">
+        <section class="tracker__balance">
+          <div class="tracker__balance-content">
+            <p class="tracker__balance-paragraphy">YOUR BALANCE</p>
+            <h2 class="heading--2 tracker__balance--total"></h2>
+          </div>
+          <div class="tracker__balance-expenditure">
+            <div
+              class="tracker__balance__account tracker__balance__account--income"
+            >
+              <p
+                class="tracker__balance-paragraphy tracker__balance__account-paragraphy"
+              >
+                income
+              </p>
+              <p
+                class="tracker__balance__account-money tracker__balance__account-money--income"
+              ></p>
+            </div>
+            <div
+              class="tracker__balance__account tracker__balance__account--expense"
+            >
+              <p
+                class="tracker__balance-paragraphy tracker__balance__account-paragraphy"
+              >
+                expense
+              </p>
+              <p
+                class="tracker__balance__account-money tracker__balance__account-money--expense"
+              ></p>
+            </div>
+          </div>
+        </section>
+        <section class="tracker__history">
+          <h3 class="heading--3 tracker__heading--3">History</h3>
+          <ul class="tracker__history-content">
+            <!-- <li class="tracker__history__item tracker__history__item--income">
+              <button class="btn btn--delete">&times;</button>
+              <p class="tracker__history-text tracker__history__item-name">
+                bread
+              </p>
+              <p
+                class="tracker__history-text tracker__history__item--income-money"
+              >
+                +1000
+              </p>
+            </li> -->
+            <!-- <li class="tracker__history__item tracker__history__item--expense">
+              <button class="btn btn--delete">&times;</button>
+              <p class="tracker__history-text tracker__history__item-name">
+                bread
+              </p>
+              <p
+                class="tracker__history-text tracker__history__item--expense-money"
+              >
+                -100
+              </p>
+            </li> -->
+          </ul>
+        </section>
+        <section class="tracker__add-transaction">
+          <h3 class="heading--3 tracker__heading--3">Add new transaction</h3>
+          <form class="form">
+            <div class="form__control">
+              <label for="form__input__item--name" class="form__label"
+                >Text</label
+              >
+              <input
+                type="text"
+                class="form__input form__input__item--name"
+                id="form__input__item--name"
+                placeholder="Enter the name of the item"
+              />
+            </div>
+            <div class="form__control">
+              <label for="form__input__item--amount" class="form__label"
+                >Amount <br />
+                (negative - expense(-100), positive - income(100))</label
+              >
+              <input
+                type="number"
+                class="form__input form__input__item--amount"
+                id="form__input__item--amount"
+                placeholder="Enter the amount of the item"
+              />
+            </div>
+            <button class="btn btn--add-transaction">Add Transaction</button>
+          </form>
+        </section>
+        <div class="tracker__error hidden">
+          <p class="tracker__error-message"></p>
+        </div>
+      </main>
+    </div>
+    <footer class="footer">
+      Design by
+      <a
+        href="https://github.com/busarishakrullahi/Top-100-Projects/tree/main/Expense%20Tracker"
+        target="_blank"
+        class="footer__link"
+        >Busari Shakrullahi</a
+      >
+    </footer>
+  </body>
 </html>

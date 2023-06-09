@@ -1,0 +1,275 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+/* convert 1em equal 16px, 450px / 16 = 25em  */
+@media only screen and (max-width: 25em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  min-height: 100vh;
+  font-family: Lato, sans-serif;
+  line-height: 1.2;
+  padding: 2rem 0;
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.heading--1 {
+  font-size: 2.5rem;
+}
+
+.tracker__heading--1 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.tracker__details {
+  width: 25%;
+  margin: 0 auto;
+}
+
+/* convert 1em equal 16px, 1200px / 16 = 75em  */
+@media only screen and (max-width: 75em) {
+  .tracker__details {
+    width: 35%;
+  }
+}
+
+/* convert 1em equal 16px, 1000px / 16 = 62.5em  */
+@media only screen and (max-width: 62.5em) {
+  .tracker__details {
+    width: 45%;
+  }
+}
+
+/* convert 1em equal 16px, 700px / 16 = 43.75em  */
+@media only screen and (max-width: 43.75em) {
+  .tracker__details {
+    width: 55%;
+  }
+}
+
+/* convert 1em equal 16px, 550px / 16 = 34.375em  */
+@media only screen and (max-width: 34.375em) {
+  .tracker__details {
+    width: 65%;
+  }
+}
+
+/* convert 1em equal 16px, 450px / 16 = 28.125em  */
+@media only screen and (max-width: 28.125em) {
+  .tracker__details {
+    width: 75%;
+  }
+}
+
+/* convert 1em equal 16px, 400px / 16 = 25em  */
+@media only screen and (max-width: 25em) {
+  .tracker__details {
+    width: 90%;
+  }
+}
+
+.tracker__balance-content {
+  margin-bottom: 2rem;
+}
+
+.tracker__balance-paragraphy {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.tracker__balance__account-paragraphy {
+  margin-bottom: 1rem;
+}
+
+.heading--2 {
+  font-size: 3.5rem;
+}
+
+.tracker__balance-expenditure {
+  display: flex;
+  text-align: center;
+  background-color: #fff;
+  padding: 2rem 3.5rem;
+}
+
+.tracker__balance__account {
+  width: 50%;
+}
+
+.tracker__balance__account-money {
+  font-size: 2rem;
+}
+
+.tracker__balance__account--income {
+  border-right: 0.1rem solid #7fffd4;
+}
+
+.tracker__balance__account-money--income {
+  color: #008000;
+}
+
+.tracker__balance__account-money--expense {
+  color: #ff0000;
+}
+
+.heading--3 {
+  font-size: 2rem;
+}
+
+.tracker__heading--3 {
+  padding-bottom: 1rem;
+  border-bottom: 0.1rem solid #808080;
+  margin-bottom: 2rem;
+}
+
+.tracker__history-content {
+  list-style-type: none;
+}
+
+.tracker__history__item {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem;
+  position: relative;
+}
+
+.tracker__balance-expenditure,
+.tracker__history__item {
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.tracker__history__item--income {
+  border-right: 0.5rem solid #008000;
+}
+
+.tracker__history__item--expense {
+  border-right: 0.5rem solid #ff0000;
+}
+
+.tracker__history__item:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.btn {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  cursor: pointer;
+  color: #fff;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn--delete {
+  position: absolute;
+  top: 50%;
+  left: -2rem;
+  width: 2rem;
+  height: 2rem;
+  font-size: 2.5rem;
+  background-color: #ff0000;
+  transform: translateY(-50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.tracker__history__item:hover .btn--delete {
+  opacity: 1;
+  visibility: visible;
+}
+
+.form__control {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.form__input {
+  font-family: inherit;
+  padding: 1rem;
+  border: 0.1rem solid #00ffff;
+}
+
+.form__input:focus {
+  outline: none;
+}
+
+.btn--add-transaction {
+  width: 100%;
+  padding: 1.5rem;
+  background-color: #9c88ff;
+  border-radius: 0.3rem;
+}
+
+.tracker__history-text,
+.form__label,
+.form__input,
+.btn--add-transaction,
+.tracker__balance-paragraphy {
+  font-size: 1.5rem;
+}
+
+.tracker__balance,
+.tracker__history,
+.tracker__add-transaction {
+  margin-bottom: 2.5rem;
+}
+
+.tracker__error {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  text-align: center;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.tracker__error-message {
+  display: inline-block;
+  font-size: 1.6rem;
+  background-color: #9c88ff;
+  padding: 2rem;
+  color: #fff;
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+/* convert 1em equal 16px, 320px / 16 = 20em  */
+@media only screen and (max-width: 20em) {
+  .tracker__error-message {
+    width: 95%;
+  }
+}
+
+.footer {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.hidden {
+  transform: translateY(-100%);
+}
