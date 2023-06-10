@@ -201,6 +201,13 @@ body {
   visibility: visible;
 }
 
+@media only screen and (hover: none) {
+  .btn--delete {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
 .form__control {
   display: grid;
   gap: 1rem;
