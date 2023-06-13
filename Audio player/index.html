@@ -6,7 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Custom audio player</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
     <script defer src="app.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div class="music">
+      <h1 class="heading--1 music__headings--1">Music Player</h1>
+      <main class="music__audio-container">
+        <div class="music__audio-content">
+          <figure class="music__audio__img-container">
+            <img
+              src="img/img--1.jpg"
+              alt="audio img 1"
+              class="music__audio__img"
+            />
+          </figure>
+          <div class="music__controls">
+            <button class="btn btn--prev">
+              <svg class="icon">
+                <use xlink:href="img/icons.svg#icon-backward-step"></use>
+              </svg>
+            </button>
+            <button class="btn btn--play">
+              <svg class="icon icon--play">
+                <use xlink:href="img/icons.svg#icon-play3"></use>
+              </svg>
+            </button>
+            <button class="btn btn--next">
+              <svg class="icon">
+                <use xlink:href="img/icons.svg#icon-step-forward"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <audio src="music/sample-9s.mp3" controls class="audio"></audio>
+        <div class="music__progressbar-container hidden">
+          <div class="music__progressbar-content">
+            <div class="music__progressbar-details">
+              <p class="music__progressbar-title">sample 1</p>
+              <div class="music__progressbar-width">
+                <div class="music__progressbar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <footer class="footer">
+      Design by
+      <a
+        href="https://github.com/busarishakrullahi/Top-100-Projects/tree/main/Currency%20converter"
+        target="_blank"
+        class="footer__link"
+        >busari shakrullahi</a
+      >
+    </footer>
+  </body>
 </html>
