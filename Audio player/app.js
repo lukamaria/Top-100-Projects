@@ -25,11 +25,15 @@ const musicDetailsArr = [
   { title: 'sample--3', src: 'music/sample-12s.mp3', img: 'img/img--3.jpg' },
 ];
 
-let counter = 0;
+const init = function () {
+  let counter = 0;
 
-audioEl.src = musicDetailsArr[counter].src;
+  audioEl.src = musicDetailsArr[counter].src;
 
-musicAudioImg.src = musicDetailsArr[counter].img;
+  musicAudioImg.src = musicDetailsArr[counter].img;
+};
+
+init();
 
 // play or pause the audio
 const playPauseControl = function () {
@@ -56,7 +60,7 @@ const playPauseControl = function () {
   }
 };
 
-// fuc
+// function for increasing the counter
 const nextContentFunc = function () {
   // 1) increase the counter when the button is click
   counter++;
