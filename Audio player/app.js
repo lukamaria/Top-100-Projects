@@ -25,15 +25,11 @@ const musicDetailsArr = [
   { title: 'sample--3', src: 'music/sample-12s.mp3', img: 'img/img--3.jpg' },
 ];
 
-const init = function () {
-  let counter = 0;
+let counter = 0;
 
-  audioEl.src = musicDetailsArr[counter].src;
+audioEl.src = musicDetailsArr[counter].src;
 
-  musicAudioImg.src = musicDetailsArr[counter].img;
-};
-
-init();
+musicAudioImg.src = musicDetailsArr[counter].img;
 
 // play or pause the audio
 const playPauseControl = function () {
