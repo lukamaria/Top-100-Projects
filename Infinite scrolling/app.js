@@ -145,8 +145,16 @@ const renderPost = async function (page, limit) {
 //
 window.addEventListener('scroll', function () {
   /**
-    get the scrollTop, scrollHeight and clientHeight number from the root element
-   
+   1) document.documentElement is the root element in our html. html element is the root element.
+
+  2) get the scrollTop, scrollHeight and clientHeight number from the root element.
+
+  3) scrollTop properties is the number of pixels the user scroll vertically from the top of the page to where the page ends.
+
+  4) scrollHeight is the entire height of the page
+
+  5) clientHeight is the view port height of a page e.g the hieght of the clientHeight will be different in mobile phone compare to tablet.
+
    */
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
 
