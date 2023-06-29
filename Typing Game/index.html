@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0 maximum-scale=1.0"
+    />
+    <title>Typing Game</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <div class="tpying-game">
+      <div class="typing-game__stage">
+        <label class="typing-game__stage-title">Difficulty</label>
+        <select class="typing-game__category" id="">
+          <option class="typing-game__value" value="easy">Easy</option>
+          <option class="typing-game__value" value="medium">Medium</option>
+          <option class="typing-game__value" value="hard">Hard</option>
+        </select>
+      </div>
+      <main class="card">
+        <div class="card__details card__front">
+          <div class="card__title-container">
+            <h1 class="heading--1">👩‍💻 speed typer 👩‍💻</h1>
+          </div>
+          <div class="card__time-out">
+            <p class="card__time-left">
+              Time left <span class="time-out">10s</span>
+            </p>
+            <p class="card__score">Score <span class="score">10</span></p>
+          </div>
+          <div class="typing-game__description">
+            <p class="paragraphy">Type the following:</p>
+            <h2 class="heading--2 typing-game__words">ronaldo</h2>
+            <form class="form">
+              <input
+                type="text"
+                class="form__control form__input"
+                placeholder="Type the word here"
+              />
+            </form>
+          </div>
+        </div>
+        <div class="card__details card__back">
+          <h2 class="heading--2">Time ran out</h2>
+          <p class="paragraphy">
+            Your final score is <span class="highscore">10</span>
+          </p>
+        </div>
+        <div class="btn-container">
+          <button class="btn btn--reload">reload</button>
+        </div>
+      </main>
+      <button class="btn btn--hide">Hide game stage</button>
+    </div>
+    <footer class="footer">
+      Design by
+      <a
+        href="https://github.com/busarishakrullahi/Top-100-Projects/tree/main/Meal%20Finder"
+        target="_blank"
+        class="footer__link"
+        >Busari Shakrullahi</a
+      >
+    </footer>
+  </body>
+</html>
