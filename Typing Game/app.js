@@ -58,10 +58,16 @@ formInput.focus();
 // format time
 const formatTime = function (time) {
   // format the time to min
-  let min = time < 10 ? `0${Math.floor(time / 60)}` : Math.floor(time / 60);
+  let min = Math.floor(time / 60);
 
   //  format the time to sec
-  let sec = time < 10 ? `0${time % 60}` : time % 60;
+  let sec = time % 60;
+
+  // re-assigning min variable
+  min = min < 10 ? `0${min}` : min;
+
+  // re-assigning sec variable
+  sec = sec < 10 ? `0${sec}` : sec;
 
   // set the min and sec as text into countDownTimer element
   countDownTimer.textContent = `${min}:${sec}s`;
