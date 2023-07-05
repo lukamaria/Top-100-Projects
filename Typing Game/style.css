@@ -8,3 +8,250 @@ html {
   font-size: 62.5%;
   box-sizing: border-box;
 }
+
+/* convert 1em equal 16px, 400px / 16 = 25em  */
+@media only screen and (max-width: 25em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.3;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.tpying-game {
+  height: 95vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.typing-game__stage {
+  width: 100%;
+  background-color: #000000aa;
+  padding: 3rem 0;
+  transform: translateY(0);
+  transition: transform 0.4s ease;
+}
+
+.typing-game__stage-detials {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.typing-game__stage-title {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.typing-game__category {
+  appearance: none;
+  background-color: #00ffff;
+  width: 15%;
+  font-size: 1.5rem;
+  padding: 0.7rem;
+  border: 0;
+}
+
+/* convert 1em equal 16px, 1000px / 16 = 62.5em  */
+@media only screen and (max-width: 62.5em) {
+  .typing-game__category {
+    width: 30%;
+  }
+}
+
+/* convert 1em equal 16px, 600px / 16 = 37.5em  */
+@media only screen and (max-width: 37.5em) {
+  .typing-game__category {
+    width: 70%;
+  }
+}
+
+/* convert 1em equal 16px, 350px / 16 = 21.875em  */
+@media only screen and (max-width: 21.875em) {
+  .typing-game__category {
+    width: 50%;
+  }
+}
+
+.typing-game__category:focus {
+  outline: none;
+}
+
+.card {
+  width: 40%;
+  height: 100%;
+  position: relative;
+}
+
+/* convert 1em equal 16px, 1000px / 16 = 62.5em  */
+@media only screen and (max-width: 62.5em) {
+  .card {
+    width: 60%;
+  }
+}
+
+/* convert 1em equal 16px, 700px / 16 = 43.75em  */
+@media only screen and (max-width: 43.75em) {
+  .card {
+    width: 75%;
+  }
+}
+
+/* convert 1em equal 16px, 600px / 16 = 37.5em  */
+@media only screen and (max-width: 37.5em) {
+  .card {
+    width: 97%;
+  }
+}
+
+.card__details {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 25rem;
+  transform: translateY(-50%);
+  background-color: #2c3e50;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.card__title-container {
+  background-color: #0000009b;
+  padding: 1rem 0;
+  text-align: center;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.heading--1 {
+  text-transform: capitalize;
+}
+
+.card__time-out {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card__text {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.typing-game__description {
+  text-align: center;
+}
+
+.paragraphy {
+  font-size: 1.5rem;
+}
+
+.heading--1,
+.heading--2 {
+  font-size: 3rem;
+}
+
+/* convert 1em equal 16px, 600px / 16 = 37.5em  */
+@media only screen and (max-width: 37.5em) {
+  .heading--1,
+  .heading--2 {
+    font-size: 2.5rem;
+  }
+}
+
+.paragraphy,
+.heading--2 {
+  margin-bottom: 0.5rem;
+}
+
+.card__back {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__control {
+  width: 60%;
+  height: 4.5rem;
+  padding: 1.7rem;
+  border-radius: 0.5rem;
+  font-family: inherit;
+  font-size: 1.5rem;
+  border: 0;
+}
+
+/* convert 1em equal 16px, 350px / 16 = 21.875em  */
+@media only screen and (max-width: 21.875em) {
+  .form__control {
+    width: 80%;
+  }
+}
+
+.form__control:focus {
+  outline: none;
+}
+
+.card__paragraphy {
+  font-size: 1.7rem;
+}
+
+.card__heading,
+.card__paragraphy {
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  border: 0;
+  background-color: #1f75fe;
+  font-size: 1.5rem;
+  color: inherit;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  text-transform: capitalize;
+  border-radius: 0.3rem;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn--hide {
+  position: fixed;
+  bottom: 5rem;
+  left: 3rem;
+}
+
+.footer {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer__link {
+  color: #fff;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.hide-stage {
+  transform: translateY(-100%);
+}
