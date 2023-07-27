@@ -7,6 +7,8 @@ const cardContainer = document.querySelector('.card__container');
 const cardPagination = document.querySelector('.card__pagination');
 const questionTextArea = document.querySelector('.memory-card__question-text');
 const answerTextArea = document.querySelector('.memory-card__answer-text');
+const errorMessageContainer = document.querySelector('.error-message');
+const errorMessage = document.querySelector('.message');
 
 // button element
 const btnAddNewCard = document.querySelector('.btn--add-new-card');
@@ -51,6 +53,20 @@ const renderCardPagination = function () {
   cardPagination.textContent = `${currentCard + 1}/${cardArray.length}`;
 };
 
+// render error message
+const renderErrorMessage = function (message) {
+  // remove the hide-error-message class from errorMessageContainer
+  errorMessageContainer.classList.remove('hide-error-message');
+
+  // write the error message into errorMessage element
+  errorMessage.textContent = message;
+
+  // add the hide-error-message class to errorMessageContainer after 1seconds
+  setTimeout(() => {
+    errorMessageContainer.classList.add('hide-error-message');
+  }, 3000);
+};
+
 // add click event on btnAddCard button
 btnAddCard.addEventListener('click', function () {
   // store the user input in a variable
@@ -58,10 +74,27 @@ btnAddCard.addEventListener('click', function () {
   const answerValue = answerTextArea.value;
 
   // check if both questionTextArea value and answerTextArea value is not a empty string
+  if (questionValue === '' || answerValue === '') {
+    // execute the render error message function
+    renderErrorMessage('The input field should not be empty');
+    return;
+  }
+
+  // check if the user input number to both textarea
+  if (isFinite(questionValue) || isFinite(answerValue)) {
+    // execute the render error message function
+    renderErrorMessage('Number is not allowed');
+    return;
+  }
+
+  // check if both questionTextArea value and answerTextArea value is not a empty string
   if (questionValue === '' || answerValue === '') return;
 
   // check if the user input number to both textarea
   if (isFinite(questionValue) || isFinite(answerValue)) return;
+
+  // execute hideSection2Function function
+  hideSection2Function();
 
   // create an object the contain both answer value and question value as it value, push it into the card array
   cardArray.push({
@@ -77,9 +110,6 @@ btnAddCard.addEventListener('click', function () {
 
   // execute createCardMarkupHtml function
   createCardMarkupHtml();
-
-  // execute hideSection2Function function
-  hideSection2Function();
 });
 
 // create card markup html function
