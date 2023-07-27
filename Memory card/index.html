@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory cards</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="app.js"></script>
+  </head>
+  <body>
+    <main class="memory-card">
+      <section class="section--1">
+        <section class="card">
+          <header class="header--1">
+            <h1 class="heading--1 memory-card__heading--1">memory cards</h1>
+            <button class="btn btn--add-new-card">
+              <svg class="icon">
+                <use xlink:href="icons/icons.svg#icon-plus"></use>
+              </svg>
+              add new card
+            </button>
+          </header>
+          <section class="card__container">
+            <!-- <div class="card__content">
+              <article class="card__details card__front">
+                <p class="card__flip">
+                  <svg class="icon card__icon">
+                    <use xlink:href="icons/icons.svg#icon-flip"></use>
+                  </svg>
+                  Flip
+                </p>
+                <p class="card__text card__question">What is your name?</p>
+              </article>
+              <article class="card__details card__back">
+                <p class="card__flip">
+                  <svg class="icon card__icon">
+                    <use xlink:href="icons/icons.svg#icon-flip"></use>
+                  </svg>
+                  Flip
+                </p>
+                <p class="card__text card__answer">
+                  My name is busari shakrullahi
+                </p>
+              </article>
+            </div> -->
+          </section>
+          <div class="card__btn-container">
+            <button class="btn btn--arrow-left">
+              <svg class="icon">
+                <use xlink:href="icons/icons.svg#icon-arrow-left"></use>
+              </svg>
+            </button>
+            <p class="card__pagination">&nbsp;</p>
+            <button class="btn btn--arrow-right">
+              <svg class="icon">
+                <use xlink:href="icons/icons.svg#icon-arrow-right"></use>
+              </svg>
+            </button>
+          </div>
+        </section>
+        <button class="btn btn--clear">
+          <svg class="icon">
+            <use xlink:href="icons/icons.svg#icon-bin"></use>
+          </svg>
+          clear cards
+        </button>
+      </section>
+      <section class="section--2 hidden">
+        <header class="header--2">
+          <h2 class="heading--2 memory-card__heading--2">add new card</h2>
+          <button class="btn btn--close">
+            <svg class="icon">
+              <use xlink:href="icons/icons.svg#icon-cancel"></use>
+            </svg>
+          </button>
+        </header>
+        <div class="memory-card__content memory-card__question">
+          <label class="memory-card__title memory-card__question-title"
+            >question</label
+          >
+          <textarea
+            class="memory-card__text memory-card__question-text"
+            placeholder="Enter question. . ."
+          ></textarea>
+        </div>
+        <div class="memory-card__content memory-card__answer">
+          <label class="memory-card__title memory-card__answer-title"
+            >answer</label
+          >
+          <textarea
+            class="memory-card__text memory-card__answer-text"
+            placeholder="Enter answer. . ."
+          ></textarea>
+        </div>
+        <div class="memory-card__btn-container">
+          <button class="btn btn--add-card">
+            <svg class="icon">
+              <use xlink:href="icons/icons.svg#icon-plus"></use>
+            </svg>
+            add card
+          </button>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      Design by
+      <a
+        href="https://github.com/busarishakrullahi/Top-100-Projects/tree/main/Speech%20Text%20Reader"
+        target="_blank"
+        class="footer__link"
+        >Busari Shakrullahi</a
+      >
+    </footer>
+  </body>
+</html>
