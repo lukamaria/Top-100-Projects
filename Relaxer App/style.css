@@ -1,0 +1,254 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+/* convert 1em equal 16px, 450px / 16 = 28.125em  */
+@media only screen and (max-width: 28.125em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.3;
+  background-color: rgba(0, 0, 0, 0.694);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #fff;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.relaxer {
+  min-height: calc(100vh - 8rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading--1 {
+  font-size: 3.5rem;
+}
+
+/* convert 1em equal 16px, 300px / 16 = 18.75em  */
+@media only screen and (max-width: 18.75em) {
+  .heading--1 {
+    font-size: 2.5rem;
+  }
+}
+
+.relaxer__heading--1 {
+  text-align: center;
+  text-transform: capitalize;
+  margin-bottom: 3rem;
+}
+
+.relaxer__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 34rem;
+  height: 34rem;
+  position: relative;
+}
+
+/* convert 1em equal 16px, 480px / 16 = 30em  */
+@media only screen and (max-width: 30em) {
+  .relaxer__container {
+    width: 28rem;
+    height: 28rem;
+  }
+}
+
+/* convert 1em equal 16px, 370px / 16 = 23.125em  */
+@media only screen and (max-width: 23.125em) {
+  .relaxer__container {
+    width: 22rem;
+    height: 22rem;
+  }
+}
+
+/* convert 1em equal 16px, 300px / 16 = 18.75em  */
+@media only screen and (max-width: 18.75em) {
+  .relaxer__container {
+    width: 18rem;
+    height: 18rem;
+  }
+}
+
+/* convert 1em equal 16px, 270px / 16 = 16.875em  */
+@media only screen and (max-width: 16.875em) {
+  .relaxer__container {
+    width: 14rem;
+    height: 14rem;
+  }
+}
+
+.relaxer__circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  border-radius: 100%;
+  z-index: -1;
+}
+
+.relaxer__gradient-circle {
+  position: absolute;
+  z-index: -2;
+  border-radius: 100%;
+  width: 36rem;
+  height: 36rem;
+  background: conic-gradient(
+    #55b7a4 0%,
+    #4ca493 40%,
+    #fff 40%,
+    #fff 60%,
+    #336d62 60%,
+    #2a5b52 100%
+  );
+}
+
+/* convert 1em equal 16px, 480px / 16 = 30em  */
+@media only screen and (max-width: 30em) {
+  .relaxer__gradient-circle {
+    width: 30rem;
+    height: 30rem;
+  }
+}
+
+/* convert 1em equal 16px, 370px / 16 = 23.125em  */
+@media only screen and (max-width: 23.125em) {
+  .relaxer__gradient-circle {
+    width: 24rem;
+    height: 24rem;
+  }
+}
+
+/* convert 1em equal 16px, 300px / 16 = 18.75em  */
+@media only screen and (max-width: 18.75em) {
+  .relaxer__gradient-circle {
+    width: 20rem;
+    height: 20rem;
+  }
+}
+
+/* convert 1em equal 16px, 270px / 16 = 16.875em  */
+@media only screen and (max-width: 16.875em) {
+  .relaxer__gradient-circle {
+    width: 16rem;
+    height: 16rem;
+  }
+}
+
+.relaxer__pointer {
+  position: absolute;
+  top: -4rem;
+  height: 21rem;
+  transform-origin: bottom;
+  animation: rotate 12s linear infinite forwards;
+}
+
+/* convert 1em equal 16px, 480px / 16 = 30em  */
+@media only screen and (max-width: 30em) {
+  .relaxer__pointer {
+    height: 18rem;
+  }
+}
+
+/* convert 1em equal 16px, 370px / 16 = 23.125em  */
+@media only screen and (max-width: 23.125em) {
+  .relaxer__pointer {
+    height: 15rem;
+  }
+}
+
+/* convert 1em equal 16px, 300px / 16 = 18.75em  */
+@media only screen and (max-width: 18.75em) {
+  .relaxer__pointer {
+    height: 13rem;
+  }
+}
+
+/* convert 1em equal 16px, 270px / 16 = 16.875em  */
+@media only screen and (max-width: 16.875em) {
+  .relaxer__pointer {
+    height: 11rem;
+  }
+}
+
+.relaxer__pointer--circle {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  background-color: #fff;
+  border-radius: 100%;
+}
+
+.relaxer__text {
+  text-transform: capitalize;
+}
+
+.relaxer__text,
+.footer {
+  font-size: 2rem;
+}
+
+/* convert 1em equal 16px, 300px / 16 = 18.75em  */
+@media only screen and (max-width: 18.75em) {
+  .relaxer__text,
+  .footer {
+    font-size: 1.6rem;
+  }
+}
+
+.footer__link {
+  color: inherit;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* these classes are used in javascript  */
+.shrink {
+  animation: shrink 5s linear forwards;
+}
+
+@keyframes shrink {
+  from {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.grow {
+  animation: grow 5s linear forwards;
+}
+
+@keyframes grow {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.2);
+  }
+}
