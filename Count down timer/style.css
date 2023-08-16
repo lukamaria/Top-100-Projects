@@ -1,0 +1,186 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+/* convert 1em equal 16px, 400px / 16 = 25em  */
+@media only screen and (max-width: 25em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.3;
+  font-family: 'Roboto', sans-serif;
+  background-image: linear-gradient(
+      to top right,
+      rgba(0, 0, 0, 0.491),
+      rgba(0, 0, 0, 0.741)
+    ),
+    url(img/new-year--1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  color: #fff;
+}
+
+.count-down {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: auto;
+  position: relative;
+}
+
+.spinner {
+  width: 8rem;
+  height: 8rem;
+  margin: 0 auto;
+}
+
+.heading--1 {
+  font-size: 6rem;
+}
+
+/* convert 1em equal 16px, 600px / 16 = 37.5em  */
+@media only screen and (max-width: 37.5em) {
+  .heading--1 {
+    font-size: 5rem;
+  }
+}
+
+/* convert 1em equal 16px, 330px / 16 = 20.625em  */
+@media only screen and (max-width: 20.625em) {
+  .heading--1 {
+    font-size: 4rem;
+  }
+}
+
+.count-down__heading--1 {
+  text-transform: capitalize;
+}
+
+.count-down__details {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 5rem;
+}
+
+/* convert 1em equal 16px, 330px / 16 = 20.625em  */
+@media only screen and (max-width: 20.625em) {
+  .count-down__details {
+    gap: 3.5rem;
+  }
+}
+
+/* convert 1em equal 16px, 280px / 16 = 17.5em  */
+@media only screen and (max-width: 17.5em) {
+  .count-down__details {
+    gap: 1.5rem;
+  }
+}
+
+.heading--2 {
+  font-size: 4rem;
+}
+
+/* convert 1em equal 16px, 600px / 16 = 37.5em  */
+@media only screen and (max-width: 37.5em) {
+  .heading--2 {
+    font-size: 3rem;
+  }
+}
+
+/* convert 1em equal 16px, 330px / 16 = 20.625em  */
+@media only screen and (max-width: 20.625em) {
+  .heading--2 {
+    font-size: 2.5rem;
+  }
+}
+
+.count-down__paragraph {
+  font-size: 2.5rem;
+}
+
+/* convert 1em equal 16px, 600px / 16 = 37.5em  */
+@media only screen and (max-width: 37.5em) {
+  .count-down__paragraph {
+    font-size: 2rem;
+  }
+}
+
+.heading--3 {
+  font-size: 25rem;
+}
+
+/* convert 1em equal 16px, 600px / 16 = 37.5em  */
+@media only screen and (max-width: 37.5em) {
+  .heading--3 {
+    font-size: 20rem;
+  }
+}
+
+/* convert 1em equal 16px, 500px / 16 = 31.25em  */
+@media only screen and (max-width: 31.25em) {
+  .heading--3 {
+    font-size: 17em;
+  }
+}
+
+/* convert 1em equal 16px, 330px / 16 = 20.625em  */
+@media only screen and (max-width: 20.625em) {
+  .heading--3 {
+    font-size: 14rem;
+  }
+}
+
+/* convert 1em equal 16px, 260px / 16 = 16.25em  */
+@media only screen and (max-width: 16.25em) {
+  .heading--3 {
+    font-size: 13rem;
+  }
+}
+
+.count-down__heading--3 {
+  font-weight: 500;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff33;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.footer {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer__link {
+  color: inherit;
+}
+
+/* these classes are used in javascript to manipulate element */
+.hidden {
+  display: none;
+}
