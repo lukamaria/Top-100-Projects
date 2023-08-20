@@ -1,0 +1,135 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+/* convert 1em equal 16px, 500px / 16 = 31.25em  */
+@media only screen and (max-width: 31.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+
+body {
+  user-select: none;
+  min-height: 100vh;
+  line-height: 1.2;
+  font-family: 'Lato', Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.heading--1 {
+  font-size: 4rem;
+}
+
+/* convert 1em equal 16px, 500px / 16 = 31.25em  */
+@media only screen and (max-width: 31.25em) {
+  .heading--1 {
+    font-size: 3rem;
+  }
+}
+
+.sort__heading--1 {
+  text-transform: capitalize;
+  margin: 2rem 0;
+}
+
+.sort__paragraph {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.sort__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  margin: auto;
+  margin-bottom: 3rem;
+}
+
+.sort__list {
+  list-style: none;
+  border: 1px solid #eee;
+  width: 30rem;
+  margin: auto;
+}
+
+.sort__item {
+  width: 100%;
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+
+.sort__index {
+  width: 8rem;
+  font-size: 3rem;
+}
+
+.sort__index,
+.sort__name {
+  height: 7rem;
+}
+
+.sort__name {
+  width: 75%;
+  text-align: left;
+}
+
+.sort__index,
+.sort__name,
+.btn {
+  padding: 2rem;
+}
+
+.sort__index,
+.btn {
+  background-color: #d3d3d3;
+}
+
+.sort__name,
+.btn {
+  font-size: 2rem;
+  text-transform: capitalize;
+}
+
+.btn {
+  border: 0;
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.footer {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* these classes are used in javascript to manipulate dom */
+.dragging {
+  background-color: #ffffffc4;
+}
+
+.drag-over {
+  background-color: #d3d3d3;
+}
+
+.wrong-order {
+  color: #ff0000;
+}
+
+.right-order {
+  color: #008000;
+}
