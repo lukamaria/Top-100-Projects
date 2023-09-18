@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0 maximum-scale=1"
+    />
+    <title>Quiz Application</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700;1,900&family=Poppins:wght@300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script defer type="module" src="js/controller.js"></script>
+  </head>
+  <body>
+    <main class="quiz">
+      <!-- section 1 start -->
+      <section class="quiz__section quiz__section--1">
+        <h1 class="heading--1 quiz__heading--1">test your knowledge</h1>
+        <form class="form--1" id="form--1">
+          <div class="form__control--1">
+            <input
+              type="text"
+              class="form__input form__input--firstname form__focus"
+              placeholder="enter your firstname"
+            />
+          </div>
+          <div class="form__control--1">
+            <input
+              type="text"
+              class="form__input form__input--lastname form__focus"
+              placeholder="enter your lastname"
+            />
+          </div>
+          <button type="submit" class="btn btn--submit">start quiz</button>
+        </form>
+      </section>
+      <!-- end section 1 -->
+
+      <!-- start section 2 -->
+      <section class="quiz__section quiz__section--2 hidden">
+        <!-- start quiz add question -->
+        <article class="quiz__add-question">
+          <div class="quiz__add-question__content">
+            <header class="quiz__question-header">
+              <h2 class="heading--2 quiz__heading--2">add questions</h2>
+              <button class="btn btn--logout btn--logout--1">logout</button>
+            </header>
+            <div class="quiz__question-details form--2">
+              <div class="form__input-group form__input-group--1">
+                <textarea
+                  class="form__textarea form__textarea--1 form__focus"
+                  placeholder="new question"
+                ></textarea>
+                <div
+                  class="form__input-group__content form__input-group__content--1"
+                >
+                  <div class="form__control--2">
+                    <label class="form__radio-group">
+                      <input
+                        type="radio"
+                        class="form__input-radio"
+                        name="radio"
+                        value=""
+                      />
+                      <span class="form__customize-radio"></span>
+                    </label>
+                    <input
+                      type="text"
+                      class="form__input-question form__input-question--1 form__focus"
+                    />
+                  </div>
+                  <div class="form__control--2">
+                    <label class="form__radio-group">
+                      <input
+                        type="radio"
+                        class="form__input-radio"
+                        name="radio"
+                        value=""
+                      />
+                      <span class="form__customize-radio"></span>
+                    </label>
+                    <input
+                      type="text"
+                      class="form__input-question form__input-question--1 form__focus"
+                    />
+                  </div>
+                </div>
+                <button type="submit" class="btn btn--insert">insert</button>
+              </div>
+
+              <div class="form__edit hidden">
+                <div class="btn-container--1">
+                  <button class="btn btn--update">update</button>
+                  <button class="btn btn--delete-question">delete</button>
+                </div>
+                <div class="form__input-group form__input-group--2">
+                  <textarea
+                    class="form__textarea form__textarea--2 form__focus"
+                    placeholder="new question"
+                  ></textarea>
+                  <div
+                    class="form__input-group__content form__input-group__content--2"
+                  >
+                    <div class="form__control--2">
+                      <label class="form__radio-group">
+                        <input
+                          type="radio"
+                          class="form__input-radio"
+                          name="radio"
+                          value=""
+                        />
+                        <span class="form__customize-radio"></span>
+                      </label>
+                      <input
+                        type="text"
+                        class="form__input-question form__input-question--2 form__focus"
+                      />
+                    </div>
+                    <div class="form__control--2">
+                      <label class="form__radio-group">
+                        <input
+                          type="radio"
+                          class="form__input-radio"
+                          name="radio"
+                        />
+                        <span class="form__customize-radio"></span>
+                      </label>
+                      <input
+                        type="text"
+                        class="form__input-question form__input-question--2 form__focus"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="btn-container--2">
+            <button class="btn btn--clear-list">clear list</button>
+          </div>
+        </article>
+        <!-- end quiz add question -->
+
+        <!-- start quiz edit question -->
+        <article class="quiz__edit-question">
+          <ul class="quiz__list">
+            <!-- <li class="quiz__item">
+              <div class="quiz__item-content">
+                <p class="quiz__item-paragraph quiz__item-index">1</p>
+                <p class="quiz__item-paragraph quiz__item-text">
+                  what is javascript
+                </p>
+              </div>
+              <button class="btn btn--edit">edit</button>
+            </li> -->
+          </ul>
+        </article>
+        <!-- end quiz edit question -->
+
+        <!-- start quiz result -->
+        <article class="quiz__result">
+          <header class="quiz__result-header">
+            <h2 class="heading--2 quiz__heading--2">result</h2>
+            <button class="btn btn--clear-result">clear result</button>
+          </header>
+          <ul class="quiz__result-details">
+            <!-- <li class="quiz__result-content">
+              <p class="quiz__result-text">nick doe - 1 points</p>
+              <button class="btn btn--delete-result">detele</button>
+            </li> -->
+          </ul>
+        </article>
+        <!-- end quiz result -->
+      </section>
+      <!-- end section 2 -->
+
+      <!-- start section 3 -->
+      <section class="quiz__section quiz__section--3 hidden">
+        <article class="quiz__question">
+          <!-- <div class="quiz__question-content">
+            <h3 class="heading--3 quiz__heading--3 quiz__question-title">
+              what is javascript?
+            </h3>
+            <div class="error">
+              <p class="error__emoji">😍</p>
+              <div class="error__content">
+                <p class="error__message">This a correct number</p>
+                <button class="btn btn--next">next</button>
+              </div>
+            </div>
+            <ul class="quiz__question-list">
+              <li class="quiz__question-item">
+                <h4 class="heading--4 quiz__heading--4 quiz__option">a</h4>
+                <p class="quiz__answer correct-answer">markup language</p>
+              </li>
+            </ul>
+          </div> -->
+        </article>
+        <article class="progressbar-container">
+          <div class="progressbar__content">
+            <p class="quiz__current-question">&nbsp;</p>
+            <div class="progressbar__details">
+              <progress
+                value="1"
+                max=""
+                class="progressbar"
+                id="progressbar"
+              ></progress>
+              <div class="custom__progressbar-container">
+                <div class="custom__progressbar" id="custom__progressbar"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+      <!-- end section 3 -->
+
+      <section class="quiz__section quiz__section--4 hidden">
+        <article class="quiz__final-score">
+          <div class="btn-container--3">
+            <button class="btn btn--logout btn--logout--2">logout</button>
+          </div>
+          <h5 class="heading--5 quiz__heading--5 quiz__final-score__text">
+            &nbsp;
+          </h5>
+        </article>
+      </section>
+
+      <div
+        class="main-error__container main-error__container--1 hide-main-error"
+      >
+        <div class="main-error__content main-error__content--1">
+          <button class="btn--close btn--close--1" id="btn--close--1">
+            &times;
+          </button>
+          <p class="main-error__paragraph main-error__paragraph--1">&nbsp;</p>
+        </div>
+      </div>
+
+      <div class="main-error__container warning__container hide-main-error">
+        <div class="main-error__content warning__content--2">
+          <button class="btn--close btn--close--2" id="btn--close--2">
+            &times;
+          </button>
+          <p class="main-error__paragraph warning__message">&nbsp;</p>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      Design by
+      <a
+        href="https://github.com/busarishakrullahi/Top-100-Projects/tree/main/Meal%20Finder"
+        target="_blank"
+        class="footer__link"
+        >Busari Shakrullahi</a
+      >
+    </footer>
+  </body>
+</html>
