@@ -27,7 +27,7 @@ html {
 body {
   font-family: 'Lato', sans-serif;
   line-height: 1.2;
-  padding: 2rem;
+  padding: 2rem 2rem 0 2rem;
   display: flex;
   flex-direction: column;
   color: var(--white--color);
@@ -36,7 +36,7 @@ body {
 /* convert 1em equal 16px, 600px / 16 = 37.5em  */
 @media only screen and (max-width: 37.5em) {
   body {
-    padding: 0.3rem;
+    padding: 0.3rem 0.3rem 0 0.3rem;
   }
 }
 
