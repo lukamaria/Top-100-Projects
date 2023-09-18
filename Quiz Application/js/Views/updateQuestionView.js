@@ -35,7 +35,7 @@ class UpdateQuestionView extends View {
           if (!radio_button) {
             // render an error if the radio button is not checked
             this._check_input_textarea_not_empty(
-              'You missed to check correct answer or you checked answer without value'
+              'You missed to check correct answer'
             );
             return;
           } else {
