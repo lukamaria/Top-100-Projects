@@ -30,14 +30,13 @@ body {
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   color: var(--white--color);
 }
 
 /* convert 1em equal 16px, 600px / 16 = 37.5em  */
 @media only screen and (max-width: 37.5em) {
   body {
-    padding: 0.3rem 0.3rem 0 0.3rem;
+    padding: 0.3rem;
   }
 }
 
@@ -53,7 +52,7 @@ body {
 
 .quiz__section--1,
 .quiz__section--4 {
-  height: 90vh;
+  height: 88vh;
 }
 
 /* convert 1em equal 16px, 600px / 16 = 37.5em  */
@@ -526,7 +525,7 @@ ul {
 
 .quiz__section--2,
 .quiz__section--3 {
-  min-height: calc(100vh - 7rem);
+  min-height: calc(100vh - 9rem);
   display: grid;
   grid-template-columns: repeat(30, [col-start] 1fr [col-end]);
   grid-template-rows: repeat(12, [row-start] 6.6vh [row-end]);
